@@ -1,0 +1,11 @@
+.git
+.idea
+build-conf
+docs
+images
+node_modules
+src-client
+src-server
+test
+.gitignore
+structor.iml

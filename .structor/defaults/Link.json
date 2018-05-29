@@ -1,14 +1,10 @@
-[
-  {
+[{
     "type": "Link",
     "props": {
-      "to": "/main"
+        "to": "/main"
     },
-    "children": [
-      {
+    "children": [{
         "type": "span",
         "text": "Link to /main"
-      }
-    ]
-  }
-]
+    }]
+}]

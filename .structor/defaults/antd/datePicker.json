@@ -1,0 +1,32 @@
+[{
+        "type": "DatePicker",
+        "variant": "default",
+        "children": [{
+            "type": "span",
+            "variant": "default",
+            "props": {},
+            "children": [],
+            "text": "DatePicker"
+        }],
+        "namespace": "antd",
+        "props": {
+            "size": "small"
+        }
+    },
+    {
+        "type": "Pagination",
+        "variant": "default",
+        "children": [{
+            "type": "span",
+            "variant": "default",
+            "props": {},
+            "children": [],
+            "text": "Pagination"
+        }],
+        "namespace": "antd",
+        "props": {
+            "defaultCurrent": "1",
+            "total": 50
+        }
+    }
+]

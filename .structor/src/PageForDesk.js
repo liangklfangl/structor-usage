@@ -3,12 +3,15 @@ import { isEqual } from "lodash";
 import { getPagePathName } from "./commons/constants.js";
 import pageDefaultModel from "./commons/model.js";
 import { createElements } from "./commons/pageUtils.js";
-
+import GridLayout from "react-grid-layout";
 import MouseOverOverlay from "./MouseOverOverlay.js";
 import SelectedOverlay from "./SelectedOverlay.js";
 import HighlightedOverlay from "./HighlightedOverlay.js";
 import ClipboardOverlay from "./ClipboardOverlay.js";
 
+/**
+ * 桌面工作区设置
+ */
 class PageForDesk extends Component {
   constructor(props, content) {
     super(props, content);
@@ -18,7 +21,6 @@ class PageForDesk extends Component {
     };
     this.elementTree = [];
     this.initialState = { elements: {} };
-
     this.updatePageModel = this.updatePageModel.bind(this);
     this.bindGetPagePath = this.bindGetPagePath.bind(this);
     this.bindGetPageModel = this.bindGetPageModel.bind(this);
@@ -31,34 +33,67 @@ class PageForDesk extends Component {
     this.updateMarks = this.updateMarks.bind(this);
   }
 
+  /**
+   * 
+   * @param {*} func 
+   */
   bindGetPagePath(func) {
+    // page.bindGetPagePath(pathname => graphApi.getPagePath(pathname));
     this.getPagePath = func;
   }
 
+  /**
+   * 
+   * @param {*} func 
+   */
   bindGetPageModel(func) {
     this.getPageModel = func;
   }
-
+  /**
+ * 
+ * @param {*} func 
+ */
   bindGetMarked(func) {
     this.getMarked = func;
   }
-
+  /**
+ * 
+ * @param {*} func 
+ */
   bindGetMode(func) {
     this.getMode = func;
   }
-
+  /**
+    * 
+    * @param {*} func 
+    */
   bindGetShowBlueprintButtons(func) {
     this.getShowBlueprintButtons = func;
   }
-
+  /**
+   * 
+   * @param {*} func 
+   * 组件鼠标按下组件的回调函数
+   */
   bindOnComponentMouseDown(func) {
     this.onComponentMouseDown = func;
   }
 
+  /**
+   * 
+   * @param {*} func
+   * 组件的pathname改变后 
+   */
   bindOnPathnameChanged(func) {
     this.onPathnameChanged = func;
   }
 
+  /**
+   * 
+   * @param {*} signature 
+   * @param {*} func 
+   * 将字段绑定到state中并提供回调函数
+   */
   bindToState(signature, func) {
     this.initialState[signature] = func;
   }
@@ -69,14 +104,19 @@ class PageForDesk extends Component {
   getContext() {
     return {};
   }
+
+  /**
+   * 组件挂载
+   */
   componentDidMount() {
     // https://github.com/ipselon/structor/issues/97
     if (window.onPageDidMount) {
-      console.log("window.onPageDidMount源代码为===", window.onPageDidMount);
       window.onPageDidMount(this);
       if (this.updatePageModel) {
         const pathname = getPagePathName(this.props.location.pathname);
+        // 得到页面的pathname
         const nextPagePath = this.getPagePath(pathname);
+        // 获取下一个pagepath
         this.updatePageModel({
           pathname: nextPagePath
         });
@@ -92,31 +132,53 @@ class PageForDesk extends Component {
     this.elementTree = undefined;
   }
 
+  /**
+   * 
+   * @param {*} nextProps 
+   * 监听pathname改变，比如工作区要加载不同的router
+   */
   componentWillReceiveProps(nextProps) {
     if (
       nextProps.location.pathname !== this.props.location.pathname ||
       isEqual(nextProps.location.query, this.props.location.query)
     ) {
+      console.log("工作区接受到nextProps===", nextProps);
       const pathname = getPagePathName(nextProps.location.pathname);
+      // "/structor-deskpage/new-menu"
       const nextPagePath = this.getPagePath(pathname);
+      // 获取pathname
+      // page.bindGetPagePath(pathname => graphApi.getPagePath(pathname));
+      // 需要走接口从structor的服务端获取
       this.updatePageModel({
         pathname: nextPagePath
       });
+
       if (this.onPathnameChanged) {
         this.onPathnameChanged(nextPagePath);
       }
     }
   }
 
+  /**
+   * 
+   * @param {*} nextProps 
+   * @param {*} nextState 
+   * 如果updateCounter改变就重新渲染
+   */
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.updateCounter !== nextProps.updateCounter;
   }
 
+  /**
+   * 根据当前页面的Model
+   */
   updatePageModel(options) {
     let { pathname } = options;
     let pageModel = this.getModelByPathname(pathname);
-    // console.log('Page model: ', JSON.stringify(pageModel, null, 4));
+    // 也就是desk/model.json的数据
+    console.log("Page model,即页面数据为: ", pageModel);
     const isEditModeOn = this.getMode();
+    // 是否编辑，动态创建组件树
     this.elementTree = createElements(
       pageModel,
       this.initialState,
@@ -132,6 +194,11 @@ class PageForDesk extends Component {
     });
   }
 
+  /**
+   * 
+   * @param {*} options 
+   * 更新updateCounter
+   */
   updateMarks(options) {
     let { pathname } = options;
     this.setState({
@@ -140,8 +207,12 @@ class PageForDesk extends Component {
     });
   }
 
+  /**
+   * 根据pathname获取这个页面的model数据
+   */
   getModelByPathname(pathname) {
     let pageModel = this.getPageModel(pathname);
+    console.log("getModelByPathname得到的数据为===", pageModel);
     if (!pageModel) {
       pageModel = pageDefaultModel;
       pageModel.children[0].children[0].modelNode.text =
@@ -212,13 +283,16 @@ class PageForDesk extends Component {
         });
       }
     }
+    // 选中区域，也就是我们组建好的页面的那一块区域
     return (
       <div
         id="pageContainer"
-        style={{ padding: "0.1px", border: "1px solid red" }}
+        style={{ padding: "0.1px", border: "1px solid green" }}
       >
         {this.elementTree}
+        {/* 组件树 */}
         {boundaryOverlays}
+        {/* 边界 */}
         {this.state.isEditModeOn ? (
           <MouseOverOverlay
             key="mouseOverBoundary"

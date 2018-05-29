@@ -1,7 +1,3 @@
-/**
- * COMMON STRUCTOR WEBPACK CONFIGURATION
- */
-
 var path = require("path");
 var webpack = require("webpack");
 
@@ -13,7 +9,7 @@ module.exports = options => ({
     "webpack-hot-middleware/client?path=/structor-dev/a&timeout=2000&overlay=false&noInfo=true",
     path.join(process.cwd(), ".structor/src/default.js") // Start
   ],
-
+  // webpack的输入(.structor/src/default.js)+输出文件路径
   output: {
     path: path.join(process.cwd(), ".structor/desk/__build__"),
     filename: "bundle.js",

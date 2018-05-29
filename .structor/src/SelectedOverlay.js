@@ -1,29 +1,30 @@
-import { isEqual } from 'lodash';
-import React, { Component } from 'react';
+import { isEqual } from "lodash";
+import React, { Component } from "react";
 
-const nullPx = '0px';
-const px = 'px';
-const nonePos = {top: 0, left: 0, width: 0, height: 0};
+const nullPx = "0px";
+const px = "px";
+const nonePos = { top: 0, left: 0, width: 0, height: 0 };
 
-function isVisible (element) {
+function isVisible(element) {
   let invisibleParent = false;
-  if ($(element).css('display') === 'none') {
+  if ($(element).css("display") === "none") {
     invisibleParent = true;
   } else {
-    $(element).parents().each(function (i, el) {
-      if ($(el).css('display') === 'none') {
-        invisibleParent = true;
-        return false;
-      }
-      return true;
-    });
+    $(element)
+      .parents()
+      .each(function(i, el) {
+        if ($(el).css("display") === "none") {
+          invisibleParent = true;
+          return false;
+        }
+        return true;
+      });
   }
   return !invisibleParent;
 }
 
 class SelectedOverlay extends Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.isSubscribed = false;
     this.state = {
@@ -31,7 +32,7 @@ class SelectedOverlay extends Component {
       mousePos: undefined,
       contextMenuType: null,
       contextMenuItem: null,
-      isOverlay: false,
+      isOverlay: false
     };
     this.startRefreshTimer = this.startRefreshTimer.bind(this);
     this.refreshPosition = this.refreshPosition.bind(this);
@@ -44,56 +45,64 @@ class SelectedOverlay extends Component {
     this.clearMousePosition = this.clearMousePosition.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.bodyWidth = document.body.clientWidth;
     this.bodyHeight = document.body.clientHeight;
     this.subscribeToInitialState();
-    const {initialState, selectedKey} = this.props;
+    const { initialState, selectedKey } = this.props;
     if (initialState && selectedKey) {
       initialState.onMouseDown[selectedKey] = this.handleComponentMouseDown;
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     if (this.refreshTimerId) {
-      clearTimeout((this.refreshTimerId));
+      clearTimeout(this.refreshTimerId);
       this.refreshTimerId = undefined;
     }
     this.$DOMNode = undefined;
-    const {initialState, selectedKey} = this.props;
+    const { initialState, selectedKey } = this.props;
     if (initialState && selectedKey) {
       delete initialState.onMouseDown[selectedKey];
     }
   }
 
-  componentWillUpdate () {
+  componentWillUpdate() {
     this.subscribeToInitialState();
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.isSubscribed = false;
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    const {selectedKey, isMultipleSelected, showBlueprintButtons} = this.props;
-    const {newPos, isOverlay, mousePos} = this.state;
-    return selectedKey !== nextProps.selectedKey ||
-      (newPos !== nextState.newPos && !isEqual(newPos, nextState.newPos) && !isEqual(nonePos, nextState.newPos)) ||
+  shouldComponentUpdate(nextProps, nextState) {
+    const {
+      selectedKey,
+      isMultipleSelected,
+      showBlueprintButtons
+    } = this.props;
+    const { newPos, isOverlay, mousePos } = this.state;
+    return (
+      selectedKey !== nextProps.selectedKey ||
+      (newPos !== nextState.newPos &&
+        !isEqual(newPos, nextState.newPos) &&
+        !isEqual(nonePos, nextState.newPos)) ||
       isOverlay !== nextState.isOverlay ||
       isMultipleSelected !== nextProps.isMultipleSelected ||
       showBlueprintButtons !== nextProps.showBlueprintButtons ||
-      mousePos !== nextState.mousePos;
+      mousePos !== nextState.mousePos
+    );
   }
 
-  subscribeToInitialState () {
+  subscribeToInitialState() {
     if (!this.isSubscribed) {
-      const {selectedKey, initialState} = this.props;
+      const { selectedKey, initialState } = this.props;
       if (selectedKey && initialState) {
         const element = initialState.elements[selectedKey];
         if (element) {
           const targetDOMNode = element.getDOMNode();
           this.isSubscribed = true;
-          this.setSelectedPosition({targetDOMNode});
+          this.setSelectedPosition({ targetDOMNode });
           this.setState({
             componentName: element.type
           });
@@ -108,16 +117,16 @@ class SelectedOverlay extends Component {
     }
   }
 
-  startRefreshTimer () {
+  startRefreshTimer() {
     this.refreshTimerId = setTimeout(() => {
       this.refreshPosition();
     }, 500);
   }
 
-  refreshPosition () {
+  refreshPosition() {
     const $DOMNode = this.$DOMNode;
     if ($DOMNode) {
-      const {newPos: oldPos} = this.state;
+      const { newPos: oldPos } = this.state;
       if (isVisible($DOMNode)) {
         let pos = $DOMNode.offset();
         let newPos = {
@@ -126,42 +135,44 @@ class SelectedOverlay extends Component {
           width: $DOMNode.outerWidth(),
           height: $DOMNode.outerHeight()
         };
-        if (!oldPos ||
+        if (
+          !oldPos ||
           newPos.top !== oldPos.top ||
           newPos.left !== oldPos.left ||
           newPos.width !== oldPos.width ||
-          newPos.height !== oldPos.height) {
-          this.setState({newPos});
+          newPos.height !== oldPos.height
+        ) {
+          this.setState({ newPos });
         }
       } else {
         if (oldPos) {
-          this.setState({newPos: null});
+          this.setState({ newPos: null });
         }
       }
     }
     this.startRefreshTimer();
   }
 
-  resetTimer () {
+  resetTimer() {
     if (this.refreshTimerId) {
-      clearTimeout((this.refreshTimerId));
+      clearTimeout(this.refreshTimerId);
       this.refreshTimerId = undefined;
     }
     this.$DOMNode = undefined;
   }
 
-  setSelectedPosition (options) {
+  setSelectedPosition(options) {
     let targetDOMNode = options.targetDOMNode;
     this.resetTimer();
     if (targetDOMNode) {
       this.$DOMNode = $(targetDOMNode);
       this.refreshPosition();
     } else {
-      console.error('');
+      console.error("");
     }
   }
 
-  handleButtonClick = (selectedKey, func) => (e) => {
+  handleButtonClick = (selectedKey, func) => e => {
     e.preventDefault();
     e.stopPropagation();
     if (func) {
@@ -169,72 +180,79 @@ class SelectedOverlay extends Component {
     }
   };
 
-  handleMouseEnterLine (e) {
+  handleMouseEnterLine(e) {
     e.preventDefault();
     e.stopPropagation();
     if (!this.state.isOverlay) {
-      this.setState({isOverlay: true});
+      this.setState({ isOverlay: true });
     }
   }
 
-  handleMouseLeaveLine (e) {
+  handleMouseLeaveLine(e) {
     e.preventDefault();
     e.stopPropagation();
     if (this.state.isOverlay) {
-      this.setState({isOverlay: false});
+      this.setState({ isOverlay: false });
     }
   }
 
-  handleComponentMouseDown (e) {
-    const {pageX, pageY} = e;
-    this.setState({mousePos: {pageX, pageY}});
+  handleComponentMouseDown(e) {
+    const { pageX, pageY } = e;
+    this.setState({ mousePos: { pageX, pageY } });
   }
 
-  clearMousePosition (e) {
+  clearMousePosition(e) {
     this.props.initialState.lastMousePos = undefined;
-    this.setState({mousePos: null});
+    this.setState({ mousePos: null });
   }
 
-  render () {
-    const {newPos, isOverlay, mousePos, componentName} = this.state;
-    const {selectedKey, isMultipleSelected, showBlueprintButtons, initialState: {lastMousePos}} = this.props;
-    const {initialState: {
-      onCopy,
-      onCut,
-      onBefore,
-      onFirst,
-      onLast,
-      onAfter,
-      onReplace,
-      onSelectParent,
-      onDelete,
-      onClone
-    }} = this.props;
+  render() {
+    const { newPos, isOverlay, mousePos, componentName } = this.state;
+    const {
+      selectedKey,
+      isMultipleSelected,
+      showBlueprintButtons,
+      initialState: { lastMousePos }
+    } = this.props;
+    const {
+      initialState: {
+        onCopy,
+        onCut,
+        onBefore,
+        onFirst,
+        onLast,
+        onAfter,
+        onReplace,
+        onSelectParent,
+        onDelete,
+        onClone
+      }
+    } = this.props;
     let content;
     if (newPos) {
-      const endPoint = {
+      let endPoint = {
         top: newPos.top + px,
-        left: newPos.left + px,
+        left: newPos.left + px
       };
       const topLine = {
         top: nullPx,
         left: nullPx,
-        width: (newPos.width - 2) + 'px',
+        width: newPos.width - 2 + "px"
       };
       const leftLine = {
         top: nullPx,
         left: nullPx,
-        height: (newPos.height - 2) + px,
+        height: newPos.height - 2 + px
       };
       const bottomLine = {
-        top: (newPos.height - 2) + px,
+        top: newPos.height - 2 + px,
         left: nullPx,
-        width: (newPos.width - 2) + px,
+        width: newPos.width - 2 + px
       };
       const rightLine = {
-        left: (newPos.width - 2) + px,
+        left: newPos.width - 2 + px,
         top: nullPx,
-        height: (newPos.height - 2) + px,
+        height: newPos.height - 2 + px
       };
 
       let overlay;
@@ -246,9 +264,9 @@ class SelectedOverlay extends Component {
           width: newPos.width + px,
           height: newPos.height + px,
           opacity: 0.2,
-          backgroundColor: '#35b3ee',
+          backgroundColor: "#35b3ee"
         };
-        titleStyle.backgroundColor = '#35b3ee';
+        titleStyle.backgroundColor = "#35b3ee";
         titleStyle.opacity = 1;
       }
 
@@ -260,10 +278,12 @@ class SelectedOverlay extends Component {
         const topLeftX = newPos.left;
         const bottomRightY = topLeftY + newPos.height;
         const bottomRightX = topLeftX + newPos.width;
-        if (validMousePos.pageX > topLeftX &&
+        if (
+          validMousePos.pageX > topLeftX &&
           validMousePos.pageX < bottomRightX &&
           validMousePos.pageY > topLeftY &&
-          validMousePos.pageY < bottomRightY) {
+          validMousePos.pageY < bottomRightY
+        ) {
           centerPointX = validMousePos.pageX - topLeftX;
           centerPointY = validMousePos.pageY - topLeftY;
         } else {
@@ -279,114 +299,113 @@ class SelectedOverlay extends Component {
           }
         }
       }
-
+      endPoint = {
+        ...endPoint,
+        border: "2px solid pink"
+      };
       content = (
-        <div
-          className="selection-border-center-point"
-          style={endPoint}
-        >
-          {isOverlay && !isMultipleSelected && <div style={overlay}/>}
-          <div className="selection-border-top-line" style={topLine}/>
-          <div className="selection-border-left-line" style={leftLine}/>
-          <div className="selection-border-bottom-line" style={bottomLine}/>
-          <div className="selection-border-right-line" style={rightLine}/>
-          {!isMultipleSelected && validMousePos && showBlueprintButtons &&
-          <div className="mouse-center-point" style={{top: centerPointY, left: centerPointX}}>
-            <div
-              className="mouse-title"
-              style={titleStyle}
-            >
-              <span>{componentName}</span>
-            </div>
-            <div
-              className="mouse-top-left-second-btn mouse-rectangle-btn umy-icon-cancel-circle"
-              onClick={this.clearMousePosition}
-            >
-            </div>
-            <div
-              className="mouse-top-left-btn mouse-rectangle-btn umy-icon-arrow-up-left"
-              title="Select parent component"
-              onClick={this.handleButtonClick(selectedKey, onSelectParent)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            >
-            </div>
-            <div
-              className="mouse-top-center-btn mouse-circle-btn umy-icon-arrow-plus-down"
-              title="Append before selected"
-              onClick={this.handleButtonClick(selectedKey, onBefore)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-top-right-btn mouse-circle-btn umy-icon-replace"
-              title="Replace selected"
-              onClick={this.handleButtonClick(selectedKey, onReplace)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-right-center-btn mouse-circle-btn umy-icon-arrow-plus-down rotate-clockwise"
-              title="Insert into selected as last child"
-              onClick={this.handleButtonClick(selectedKey, onLast)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-bottom-right-btn mouse-rectangle-btn umy-icon-cut"
-              title="Cut selected into clipboard"
-              onClick={this.handleButtonClick(selectedKey, onCut)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-bottom-center-btn mouse-circle-btn umy-icon-arrow-plus-up"
-              title="Append after selected"
-              onClick={this.handleButtonClick(selectedKey, onAfter)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-bottom-left-btn mouse-rectangle-btn umy-icon-copy"
-              title="Copy selected into clipboard"
-              onClick={this.handleButtonClick(selectedKey, onCopy)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-bottom-left-second-btn mouse-rectangle-btn umy-icon-duplicate"
-              title="Clone selected"
-              onClick={this.handleButtonClick(selectedKey, onClone)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-left-center-btn mouse-circle-btn umy-icon-arrow-plus-up rotate-clockwise"
-              title="Insert into selected as first child"
-              onClick={this.handleButtonClick(selectedKey, onFirst)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-            <div
-              className="mouse-left-center-second-btn mouse-rectangle-btn umy-icon-delete mouse-button-warning"
-              title="Delete selected"
-              onClick={this.handleButtonClick(selectedKey, onDelete)}
-              onMouseOver={this.handleMouseEnterLine}
-              onMouseOut={this.handleMouseLeaveLine}
-            />
-          </div>
-          }
+        <div className="selection-border-center-point" style={endPoint}>
+          {isOverlay && !isMultipleSelected && <div style={overlay} />}
+          <div className="selection-border-top-line" style={topLine} />
+          <div className="selection-border-left-line" style={leftLine} />
+          <div className="selection-border-bottom-line" style={bottomLine} />
+          <div className="selection-border-right-line" style={rightLine} />
+          {!isMultipleSelected &&
+            validMousePos &&
+            showBlueprintButtons && (
+              <div
+                className="mouse-center-point"
+                style={{ top: centerPointY, left: centerPointX }}
+              >
+                <div className="mouse-title" style={titleStyle}>
+                  <span>{componentName}</span>
+                </div>
+                <div
+                  className="mouse-top-left-second-btn mouse-rectangle-btn umy-icon-cancel-circle"
+                  onClick={this.clearMousePosition}
+                />
+                <div
+                  className="mouse-top-left-btn mouse-rectangle-btn umy-icon-arrow-up-left"
+                  title="Select parent component"
+                  onClick={this.handleButtonClick(selectedKey, onSelectParent)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-top-center-btn mouse-circle-btn umy-icon-arrow-plus-down"
+                  title="Append before selected"
+                  onClick={this.handleButtonClick(selectedKey, onBefore)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-top-right-btn mouse-circle-btn umy-icon-replace"
+                  title="Replace selected"
+                  onClick={this.handleButtonClick(selectedKey, onReplace)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-right-center-btn mouse-circle-btn umy-icon-arrow-plus-down rotate-clockwise"
+                  title="Insert into selected as last child"
+                  onClick={this.handleButtonClick(selectedKey, onLast)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-bottom-right-btn mouse-rectangle-btn umy-icon-cut"
+                  title="Cut selected into clipboard"
+                  onClick={this.handleButtonClick(selectedKey, onCut)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-bottom-center-btn mouse-circle-btn umy-icon-arrow-plus-up"
+                  title="Append after selected"
+                  onClick={this.handleButtonClick(selectedKey, onAfter)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-bottom-left-btn mouse-rectangle-btn umy-icon-copy"
+                  title="Copy selected into clipboard"
+                  onClick={this.handleButtonClick(selectedKey, onCopy)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-bottom-left-second-btn mouse-rectangle-btn umy-icon-duplicate"
+                  title="Clone selected"
+                  onClick={this.handleButtonClick(selectedKey, onClone)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-left-center-btn mouse-circle-btn umy-icon-arrow-plus-up rotate-clockwise"
+                  title="Insert into selected as first child"
+                  onClick={this.handleButtonClick(selectedKey, onFirst)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+                <div
+                  className="mouse-left-center-second-btn mouse-rectangle-btn umy-icon-delete mouse-button-warning"
+                  title="Delete selected"
+                  onClick={this.handleButtonClick(selectedKey, onDelete)}
+                  onMouseOver={this.handleMouseEnterLine}
+                  onMouseOut={this.handleMouseLeaveLine}
+                />
+              </div>
+            )}
         </div>
       );
     } else {
       const style = {
-        display: 'none'
+        display: "none"
       };
-      content = (<span style={style}/>);
+      content = <span style={style} />;
     }
     return content;
   }
-
 }
 
 export default SelectedOverlay;

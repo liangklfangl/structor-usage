@@ -1,0 +1,6 @@
+.idea
+src
+test
+build-conf
+*.iml
+node_modules

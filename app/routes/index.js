@@ -1,6 +1,6 @@
-import React from 'react';
-import HomePage from './HomePage';
-import Page10 from './Page10';
+import React from "react";
+import HomePage from "./HomePage";
+import Page7 from "./Page7";
 
 class App extends React.Component {
   render() {
@@ -8,31 +8,29 @@ class App extends React.Component {
       <div>
         {this.props.children}
       </div>
-      );
+    );
   }
 }
 
 export default {
-  path: '/',
+  path: "/",
   component: App,
-  indexRoute: {
-    component: HomePage
-  },
+  indexRoute: { component: HomePage },
   childRoutes: [
     {
-      path: '/home',
-      name: '/home',
-      component: HomePage,
+      path: "/home",
+      name: "/home",
+      component: HomePage
     },
     {
-      path: '/second',
-      name: '/second',
-      component: Page10,
+      path: "/index",
+      name: "/index",
+      component: Page7
     },
     {
-      path: '*',
-      name: 'notfound',
-      component: HomePage,
-    },
-  ],
+      path: "*",
+      name: "notfound",
+      component: HomePage
+    }
+  ]
 };

@@ -14,3 +14,8 @@ structor -v
 <pre>
 http://localhost:2222/structor/
 </pre>
+
+
+
+#### 1.4 说没有react
+肯定是地址不对
