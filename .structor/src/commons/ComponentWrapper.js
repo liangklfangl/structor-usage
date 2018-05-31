@@ -20,9 +20,12 @@ class ComponentWrapper extends Component {
   }
 
   subscribeToInitialState() {
+    console.log("subscribeToInitialState subscribeToInitialState");
     const { onMouseDown, initialState, elementKey, type } = this.props;
+    // 默认的state
     if (initialState) {
       initialState.onMouseDown = {};
+      // elements[elementkEY]
       initialState.elements[elementKey] = {
         type,
         getDOMNode: () => {
@@ -39,9 +42,9 @@ class ComponentWrapper extends Component {
   initDOMNode() {
     if (!this.$DOMNode) {
       this.$DOMNode = $(ReactDOM.findDOMNode(this));
-      console.log("this.$DOMNode===", this.$DOMNode);
       this.$DOMNode
         .on("mousedown", this.handleMouseDown)
+        // 点击鼠标的回调
         .on("mouseover", this.handleMouseOver)
         .on("mouseout", this.handleMouseOut)
         .on("click", this.handleNoop)
@@ -50,15 +53,23 @@ class ComponentWrapper extends Component {
     }
   }
 
+  /**
+   * 组件卸载
+   */
   componentWillMount() {
     this.subscribeToInitialState();
   }
 
+  /**
+   * 组件挂载
+   */
   componentDidMount() {
-    console.log("initDOMNode===initDOMNode");
     this.initDOMNode();
   }
 
+  /**
+   * 移除组件上挂载的事件
+   */
   componentWillUnmount() {
     if (this.$DOMNode) {
       this.$DOMNode
@@ -72,6 +83,11 @@ class ComponentWrapper extends Component {
     this.$DOMNode = undefined;
   }
 
+  /**
+   * 
+   * @param {*} nextProps
+   * 组件接受新的props 
+   */
   componentWillReceiveProps(nextProps) {
     this.subscribeToInitialState();
   }
@@ -82,7 +98,6 @@ class ComponentWrapper extends Component {
    * 鼠标点击事件
    */
   handleMouseDown(e) {
-    debugger;
     if (!e.shiftKey) {
       e.stopPropagation();
       e.preventDefault();
@@ -131,8 +146,12 @@ class ComponentWrapper extends Component {
     }
   }
 
+  /**
+   * 
+   * @param {*} e
+   * 单击/双击/鼠标放开回调 
+   */
   handleNoop(e) {
-    console.log("e.shiftKey===", e.shiftKey);
     if (!e.shiftKey) {
       e.stopPropagation();
       e.preventDefault();
@@ -141,6 +160,8 @@ class ComponentWrapper extends Component {
 
   render() {
     const { wrappedComponent, wrappedProps, children } = this.props;
+    console.log("高阶组件接受到的props值===", wrappedProps);
+    // 包裹的元素类型+包裹的元素的方法+子级元素
     return React.createElement(wrappedComponent, wrappedProps, children);
   }
 }

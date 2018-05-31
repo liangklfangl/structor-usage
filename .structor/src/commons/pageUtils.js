@@ -35,16 +35,18 @@ export function findComponent(index, componentName, namespace) {
  * @param {*} mouseDownHandler 
  * @param {*} options 
  */
-export function createElement(node, initialState, mouseDownHandler, options) {
+export function createElement(
+  node,
+  initialState,
+  mouseDownHandler,
+  options,
+  dragSizeChangeCallback
+) {
   let modelNode = node.modelNode;
   // 找到每一个的modelNode
   let type = findComponent(components, modelNode.type, modelNode.namespace);
-  // 创建元素
-  console.log("type====", type);
-  console.log("findComponent的node===", node);
+  // 创建元素类型
   let props = extend({}, modelNode.props, { key: node.key });
-  console.log("props===", props);
-  console.log("\n\n");
   if (node.props) {
     // 为每一个props添加一个新的组件类型
     forOwn(node.props, (prop, propName) => {
@@ -67,6 +69,7 @@ export function createElement(node, initialState, mouseDownHandler, options) {
     });
     nestedElements = children;
   } else if (modelNode.text) {
+    // 如果有text属性，那么久设置为子元素，这和数据结构一致
     nestedElements = [modelNode.text];
   }
 
@@ -81,10 +84,17 @@ export function createElement(node, initialState, mouseDownHandler, options) {
         type: modelNode.type,
         initialState: initialState,
         // 默认的组件配置数据
+        // 下面是作为props传入到我们的高阶组件的
         wrappedProps: {
           ...props,
           onMouseDown: mouseDownHandler,
-          disabled: false
+          disabled: false,
+          key: node.key,
+          dragSizeChangeCallback,
+          onMouseDown: mouseDownHandler,
+          elementKey: node.key,
+          type: modelNode.type,
+          initialState: initialState
         },
         // 这是被包裹的元素添加的属性
         wrappedComponent: type
@@ -95,13 +105,6 @@ export function createElement(node, initialState, mouseDownHandler, options) {
         ComponentWrapper,
         wrapperProps,
         nestedElements
-      );
-      console.log(
-        "wrapperProps的值为====",
-        wrapperProps,
-        options,
-        result,
-        result.type.prototype ? result.type.prototype.render : null
       );
     } else {
       result = React.createElement(type, props, nestedElements);
@@ -164,17 +167,29 @@ export function createElement(node, initialState, mouseDownHandler, options) {
 // 	}
 //   );
 // 对于children下面的所有的元素进行遍历
-export function createElements(model, initialState, mouseDownHandler, options) {
-  console.log("createElements接受到的model为===", model);
+export function createElements(
+  model,
+  initialState,
+  mouseDownHandler,
+  options,
+  dragSizeChangeCallback
+) {
+  console.log("dragSizeChangeCallback====", dragSizeChangeCallback);
   initialState.elements = {};
   let elements = [];
   if (model && model.children && model.children.length > 0) {
     model.children.forEach(child => {
       elements.push(
-        createElement(child, initialState, mouseDownHandler, options)
+        createElement(
+          child,
+          initialState,
+          mouseDownHandler,
+          options,
+          dragSizeChangeCallback
+        )
       );
     });
   }
-  console.log("创建的elements结果为====", elements);
+
   return elements;
 }

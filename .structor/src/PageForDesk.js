@@ -56,6 +56,15 @@ class PageForDesk extends Component {
   bindGetMarked(func) {
     this.getMarked = func;
   }
+
+  /**
+   * 
+   * @param {*} func 
+   * 绑定dragSize改变
+   */
+  bindDragSizeChange = func => {
+    this.onDragSizeChange = func;
+  };
   /**
  * 
  * @param {*} func 
@@ -185,7 +194,8 @@ class PageForDesk extends Component {
       this.onComponentMouseDown,
       {
         isEditModeOn: isEditModeOn
-      }
+      },
+      this.onDragSizeChange
     );
     this.setState({
       pathname: pathname,
@@ -287,7 +297,7 @@ class PageForDesk extends Component {
     return (
       <div
         id="pageContainer"
-        style={{ padding: "0.1px", border: "1px solid green" }}
+        style={{ padding: "0.1px", border: "5px solid pink" }}
       >
         {this.elementTree}
         {/* 组件树 */}

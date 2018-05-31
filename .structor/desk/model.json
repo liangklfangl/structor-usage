@@ -1,362 +1,436 @@
 {
-    "pages": [{
-            "pageName": "HomePage",
-            "pagePath": "/home",
-            "children": [{
-                    "type": "RaisedButton",
-                    "variant": "default",
-                    "children": []
-                },
-                {
-                    "type": "code",
-                    "variant": "default",
-                    "props": {},
-                    "children": [{
-                        "type": "span",
-                        "text": "Code text line",
-                        "children": [{
-                            "type": "a",
-                            "variant": "default",
-                            "props": {
-                                "href": "#"
-                            },
-                            "children": [{
-                                "type": "a",
-                                "variant": "default",
-                                "props": {
-                                    "href": "#"
-                                },
-                                "children": []
-                            }]
-                        }]
-                    }]
-                }
-            ]
+  "pages": [
+    {
+      "pageName": "HomePage",
+      "pagePath": "/home",
+      "children": [
+        {
+          "type": "RaisedButton",
+          "variant": "default",
+          "children": []
         },
         {
-            "pageName": "Page73",
-            "pagePath": "/newMenu",
-            "children": [{
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd"
-                },
+          "type": "code",
+          "variant": "default",
+          "props": {},
+          "children": [
+            {
+              "type": "span",
+              "text": "Code text line",
+              "children": [
                 {
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter1",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter1",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Counter"
-                },
-                {
-                    "type": "Counter1",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Counter3",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Counter1",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                }
-            ]
-        },
-        {
-            "pageName": "Page86",
-            "pagePath": "/new-menu",
-            "children": [{
-                    "type": "Counter1",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Menu",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                },
-                {
-                    "type": "Counter",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "Menu"
-                }
-            ]
-        },
-        {
-            "pageName": "Page40",
-            "pagePath": "/test",
-            "children": [{
-                    "type": "span",
-                    "variant": "default",
-                    "props": {},
-                    "children": [],
-                    "text": "Text"
-                },
-                {
-                    "type": "span",
-                    "variant": "default",
-                    "props": {},
-                    "children": [],
-                    "text": "Text"
-                },
-                {
-                    "type": "a",
-                    "variant": "default",
-                    "props": {
+                  "type": "a",
+                  "variant": "default",
+                  "props": {
+                    "href": "#"
+                  },
+                  "children": [
+                    {
+                      "type": "a",
+                      "variant": "default",
+                      "props": {
                         "href": "#"
-                    },
-                    "children": [{
-                        "type": "span",
-                        "text": "Link text"
-                    }]
+                      },
+                      "children": []
+                    }
+                  ]
                 }
-            ]
-        },
-        {
-            "pageName": "Page44",
-            "pagePath": "/select",
-            "children": []
-        },
-        {
-            "pageName": "Page61",
-            "pagePath": "/publish",
-            "children": [{
-                "type": "div",
-                "props": {
-                    "style": {
-                        "display": "flex",
-                        "justifyContent": "center",
-                        "alignItems": "center",
-                        "padding": "1em"
-                    }
-                },
-                "children": [{
-                    "type": "div",
-                    "children": [{
-                        "type": "h3",
-                        "props": {
-                            "style": {
-                                "padding": "1em",
-                                "textAlign": "center"
-                            }
-                        },
-                        "children": [{
-                            "type": "span",
-                            "text": "Click on me and start creating a new cool component."
-                        }]
-                    }]
-                }]
-            }]
-        },
-        {
-            "pageName": "Page49",
-            "pagePath": "/resize",
-            "children": [{
-                    "type": "div",
-                    "props": {
-                        "style": {
-                            "display": "flex",
-                            "justifyContent": "center",
-                            "alignItems": "center",
-                            "padding": "1em",
-                            "border": "1px solid red"
-                        }
-                    },
-                    "children": [{
-                        "type": "div",
-                        "children": [{
-                            "type": "h3",
-                            "props": {
-                                "style": {
-                                    "padding": "1em",
-                                    "textAlign": "center",
-                                    "color": "#e92929",
-                                    "marginLeft": "500px"
-                                }
-                            },
-                            "children": [{
-                                "type": "span",
-                                "text": "Click on me and start creating a new cool component.",
-                                "props": {}
-                            }]
-                        }]
-                    }]
-                },
-                {
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "a",
-                    "variant": "default",
-                    "props": {
-                        "href": "#"
-                    },
-                    "children": [{
-                        "type": "span",
-                        "text": "Link text"
-                    }]
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "placeholder": "请输入你的名字"
-                    }
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "placeholder": "请输入你的学校"
-                    }
-                }
-            ]
+              ]
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "pageName": "Page73",
+      "pagePath": "/newMenu",
+      "children": [
+        {
+          "type": "Counter",
+          "props": {},
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Counter",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter1",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter1",
+          "variant": "default",
+          "children": [],
+          "namespace": "Counter"
+        },
+        {
+          "type": "Counter1",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Counter3",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Counter1",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        }
+      ]
+    },
+    {
+      "pageName": "Page86",
+      "pagePath": "/new-menu",
+      "children": [
+        {
+          "type": "Counter1",
+          "props": {},
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Menu",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        },
+        {
+          "type": "Counter",
+          "variant": "default",
+          "children": [],
+          "namespace": "Menu"
+        }
+      ]
+    },
+    {
+      "pageName": "Page40",
+      "pagePath": "/test",
+      "children": [
+        {
+          "type": "span",
+          "variant": "default",
+          "props": {},
+          "children": [],
+          "text": "Text"
+        },
+        {
+          "type": "span",
+          "variant": "default",
+          "props": {},
+          "children": [],
+          "text": "Text"
+        },
+        {
+          "type": "a",
+          "variant": "default",
+          "props": {
+            "href": "#"
+          },
+          "children": [
+            {
+              "type": "span",
+              "text": "Link text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "Page44",
+      "pagePath": "/select",
+      "children": []
+    },
+    {
+      "pageName": "Page61",
+      "pagePath": "/publish",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
+                {
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "span",
+                      "text": "Click on me and start creating a new cool component."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "Page63",
+      "pagePath": "/antd",
+      "children": []
+    },
+    {
+      "pageName": "Page56",
+      "pagePath": "/drag",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
+                {
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "span",
+                      "text": "Click on me and start creating a new cool component."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "55",
+            "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+            "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+            "x": 64,
+            "y": 22,
+            "placeholder": "Please Enter School",
+            "style": {
+              "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+              "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+              "marginLeft": "64px",
+              "marginTop": "22px"
+            },
+            "keyCode": 0
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "width": "173pxpxpxpx",
+            "height": "34pxpxpxpx",
+            "x": 256,
+            "y": 22,
+            "placeholder": "Please Enter Name",
+            "key": "56",
+            "style": {
+              "width": "173pxpxpxpxpx",
+              "height": "34pxpxpxpxpx",
+              "marginLeft": "256px",
+              "marginTop": "22px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "57",
+            "width": "178pxpxpxpx",
+            "height": "35pxpxpxpx",
+            "x": 550,
+            "placeholder": "Please Enter Age",
+            "y": 21,
+            "style": {
+              "width": "178pxpxpxpxpx",
+              "height": "35pxpxpxpxpx",
+              "marginLeft": "550px",
+              "marginTop": "21px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "58",
+            "width": "183pxpxpx",
+            "height": "33pxpxpx",
+            "x": 834,
+            "placeholder": "Please Enter Sex",
+            "y": 25,
+            "style": {
+              "width": "183pxpxpxpx",
+              "height": "33pxpxpxpx",
+              "marginLeft": "834px",
+              "marginTop": "25px"
+            }
+          }
+        }
+      ]
+    }
+  ]
 }
