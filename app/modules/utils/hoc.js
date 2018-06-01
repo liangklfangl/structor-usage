@@ -1,6 +1,10 @@
 import Rnd from "react-rnd";
 import React from "react";
 import ReactDOM from "react-dom";
+import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
+import { LEFT, RIGHT, DOWN, UP, STEP } from "./const";
+import "./global.less";
+const MENU_TYPE = "SIMPLE";
 const style = {
   display: "flex",
   alignItems: "center",
@@ -17,11 +21,11 @@ function getUnitPix(pixel) {
 /**
  * 这里要写一个高阶组件来处理react-rnd包裹
  */
-const LEFT = 37;
-const RIGHT = 39;
-const DOWN = 40;
-const UP = 38;
-const STEP = 10;
+
+function handleClick(e, data) {
+  console.log(data.foo);
+}
+
 export default function HOC(WrappedComponent) {
   return class RndWrappedComponent extends React.Component {
     // 默认宽度
@@ -29,7 +33,8 @@ export default function HOC(WrappedComponent) {
       width: 50,
       height: 100,
       x: 10,
-      y: 10
+      y: 10,
+      logs: []
     };
 
     /**
@@ -40,6 +45,7 @@ export default function HOC(WrappedComponent) {
       setTimeout(() => {
         $(`${wrappedElClss}`).on("keydown", e => {
           const { keyCode } = e;
+          let changedProps = {};
           switch (keyCode) {
             case RIGHT:
               const { x } = this.state;
@@ -68,6 +74,12 @@ export default function HOC(WrappedComponent) {
               });
             default:
           }
+          //更新数据信息到服务端
+          const updatedProps = {
+            ...this.state,
+            key: this.props.elementKey
+          };
+          this.props && this.props.dragSizeChangeCallback(updatedProps);
         });
       }, 0);
     }
@@ -121,21 +133,35 @@ export default function HOC(WrappedComponent) {
             this.props && this.props.dragSizeChangeCallback(changedProps);
           }}
         >
-          <WrappedComponent
-            className={wrappedElClss}
-            {...this.props}
-            style={{ width: this.state.width, height: this.state.height }}
-            onMouseDown={() => {
-              //内嵌组件被点击
-              //this.props &&
-              //this.props.onMouseDown &&
-              //this.props.onMouseDown(this.props.elementKey);
-            }}
-            //点击这个组件的时候需要弹出弹窗修改属性
-            ref={cmpt => {
-              this.wrappedComponent = cmpt;
-            }}
-          />
+          <ContextMenu id="some_unique_identifier">
+            <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+              ContextMenu Item 1
+            </MenuItem>
+            <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+              ContextMenu Item 2
+            </MenuItem>
+            <MenuItem divider />
+            <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+              ContextMenu Item 3
+            </MenuItem>
+          </ContextMenu>
+          <ContextMenuTrigger id="some_unique_identifier">
+            <WrappedComponent
+              className={wrappedElClss}
+              {...this.props}
+              style={{ width: this.state.width, height: this.state.height }}
+              onMouseDown={() => {
+                //内嵌组件被点击
+                //this.props &&
+                //this.props.onMouseDown &&
+                //this.props.onMouseDown(this.props.elementKey);
+              }}
+              //点击这个组件的时候需要弹出弹窗修改属性
+              ref={cmpt => {
+                this.wrappedComponent = cmpt;
+              }}
+            />
+          </ContextMenuTrigger>
         </Rnd>
       );
     }

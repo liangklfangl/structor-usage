@@ -356,16 +356,16 @@
           "namespace": "antd",
           "props": {
             "key": "55",
-            "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-            "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-            "x": 64,
-            "y": 22,
+            "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+            "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+            "x": 43,
+            "y": 19,
             "placeholder": "Please Enter School",
             "style": {
-              "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-              "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-              "marginLeft": "64px",
-              "marginTop": "22px"
+              "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+              "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
+              "marginLeft": "43px",
+              "marginTop": "19px"
             },
             "keyCode": 0
           }
@@ -376,16 +376,16 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "width": "173pxpxpxpx",
-            "height": "34pxpxpxpx",
-            "x": 256,
+            "width": "173pxpxpxpxpxpx",
+            "height": "34pxpxpxpxpxpx",
+            "x": 276,
             "y": 22,
             "placeholder": "Please Enter Name",
             "key": "56",
             "style": {
-              "width": "173pxpxpxpxpx",
-              "height": "34pxpxpxpxpx",
-              "marginLeft": "256px",
+              "width": "173pxpxpxpxpxpxpx",
+              "height": "34pxpxpxpxpxpxpx",
+              "marginLeft": "276px",
               "marginTop": "22px"
             }
           }
@@ -397,16 +397,16 @@
           "namespace": "antd",
           "props": {
             "key": "57",
-            "width": "178pxpxpxpx",
-            "height": "35pxpxpxpx",
-            "x": 550,
+            "width": "178pxpxpxpxpxpx",
+            "height": "35pxpxpxpxpxpx",
+            "x": 622,
             "placeholder": "Please Enter Age",
-            "y": 21,
+            "y": 13,
             "style": {
-              "width": "178pxpxpxpxpx",
-              "height": "35pxpxpxpxpx",
-              "marginLeft": "550px",
-              "marginTop": "21px"
+              "width": "178pxpxpxpxpxpxpx",
+              "height": "35pxpxpxpxpxpxpx",
+              "marginLeft": "622px",
+              "marginTop": "13px"
             }
           }
         },
@@ -417,15 +417,15 @@
           "namespace": "antd",
           "props": {
             "key": "58",
-            "width": "183pxpxpx",
-            "height": "33pxpxpx",
-            "x": 834,
+            "width": "183pxpxpxpxpxpx",
+            "height": "33pxpxpxpxpxpx",
+            "x": 984,
             "placeholder": "Please Enter Sex",
             "y": 25,
             "style": {
-              "width": "183pxpxpxpx",
-              "height": "33pxpxpxpx",
-              "marginLeft": "834px",
+              "width": "183pxpxpxpxpxpxpx",
+              "height": "33pxpxpxpxpxpxpx",
+              "marginLeft": "984px",
               "marginTop": "25px"
             }
           }
