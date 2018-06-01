@@ -39,3 +39,8 @@ setTimeout(() => {
       });
     }
 ```
+
+### 问题3：修改react-context文件将它的left值设置为0，position为absolute而不是fixed
+```js
+ _this2.menu.style.left = left + "px";
+```

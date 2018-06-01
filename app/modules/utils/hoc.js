@@ -3,7 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 import { LEFT, RIGHT, DOWN, UP, STEP } from "./const";
-import "./global.less";
 const MENU_TYPE = "SIMPLE";
 const style = {
   display: "flex",
@@ -22,10 +21,6 @@ function getUnitPix(pixel) {
  * 这里要写一个高阶组件来处理react-rnd包裹
  */
 
-function handleClick(e, data) {
-  console.log(data.foo);
-}
-
 export default function HOC(WrappedComponent) {
   return class RndWrappedComponent extends React.Component {
     // 默认宽度
@@ -33,8 +28,7 @@ export default function HOC(WrappedComponent) {
       width: 50,
       height: 100,
       x: 10,
-      y: 10,
-      logs: []
+      y: 10
     };
 
     /**
@@ -79,7 +73,9 @@ export default function HOC(WrappedComponent) {
             ...this.state,
             key: this.props.elementKey
           };
-          this.props && this.props.dragSizeChangeCallback(updatedProps);
+          this.props &&
+            this.props.dragSizeChangeCallback &&
+            this.props.dragSizeChangeCallback(updatedProps);
         });
       }, 0);
     }
@@ -95,9 +91,15 @@ export default function HOC(WrappedComponent) {
       });
       this.initEvent();
     }
-
+    /**
+     * 右键弹出面板被点击
+     */
+    handleRightMenuPanelClick(e, data) {
+      console.log("组件被点击===", e, data);
+    }
     render() {
       const wrappedElClss = "wrapped__component--" + this.props.elementKey;
+      const uniqueRightPanelKey = "some_unique_identifier" + Math.random();
       return (
         <Rnd
           ref={cpt => {
@@ -130,22 +132,40 @@ export default function HOC(WrappedComponent) {
               height: ref.offsetHeight,
               ...position
             });
-            this.props && this.props.dragSizeChangeCallback(changedProps);
+            this.props &&
+              this.props.dragSizeChangeCallback &&
+              this.props.dragSizeChangeCallback(changedProps);
           }}
         >
-          <ContextMenu id="some_unique_identifier">
-            <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+          <ContextMenu
+            id={uniqueRightPanelKey}
+            style={{
+              border: "1px solid pink",
+              position: "absolute",
+              left: "20px"
+            }}
+          >
+            <MenuItem
+              data={{ foo: "bar" }}
+              onClick={this.handleRightMenuPanelClick}
+            >
               ContextMenu Item 1
             </MenuItem>
-            <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+            <MenuItem
+              data={{ foo: "bar" }}
+              onClick={this.handleRightMenuPanelClick}
+            >
               ContextMenu Item 2
             </MenuItem>
             <MenuItem divider />
-            <MenuItem data={{ foo: "bar" }} onClick={this.handleClick}>
+            <MenuItem
+              data={{ foo: "bar" }}
+              onClick={this.handleRightMenuPanelClick}
+            >
               ContextMenu Item 3
             </MenuItem>
           </ContextMenu>
-          <ContextMenuTrigger id="some_unique_identifier">
+          <ContextMenuTrigger id={uniqueRightPanelKey}>
             <WrappedComponent
               className={wrappedElClss}
               {...this.props}

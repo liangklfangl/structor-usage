@@ -338,77 +338,37 @@
                       "textAlign": "center"
                     }
                   },
-                  "children": [
-                    {
-                      "type": "span",
-                      "text": "Click on me and start creating a new cool component."
-                    }
-                  ]
+                  "children": []
                 }
               ]
             }
           ]
         },
         {
-          "type": "Input",
+          "type": "Pagination",
           "variant": "default",
           "children": [],
-          "namespace": "antd",
           "props": {
-            "key": "55",
-            "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-            "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-            "x": 43,
-            "y": 19,
-            "placeholder": "Please Enter School",
-            "style": {
-              "width": "161pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-              "height": "39pxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpxpx",
-              "marginLeft": "43px",
-              "marginTop": "19px"
-            },
-            "keyCode": 0
+            "total": 100
           }
         },
         {
-          "type": "Input",
+          "type": "Pagination",
+          "variant": "default",
+          "children": []
+        },
+        {
+          "type": "Pagination",
           "variant": "default",
           "children": [],
-          "namespace": "antd",
           "props": {
-            "width": "173pxpxpxpxpxpx",
-            "height": "34pxpxpxpxpxpx",
-            "x": 276,
-            "y": 22,
-            "placeholder": "Please Enter Name",
-            "key": "56",
-            "style": {
-              "width": "173pxpxpxpxpxpxpx",
-              "height": "34pxpxpxpxpxpxpx",
-              "marginLeft": "276px",
-              "marginTop": "22px"
-            }
+            "total": 200
           }
         },
         {
-          "type": "Input",
+          "type": "Pagination",
           "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "57",
-            "width": "178pxpxpxpxpxpx",
-            "height": "35pxpxpxpxpxpx",
-            "x": 622,
-            "placeholder": "Please Enter Age",
-            "y": 13,
-            "style": {
-              "width": "178pxpxpxpxpxpxpx",
-              "height": "35pxpxpxpxpxpxpx",
-              "marginLeft": "622px",
-              "marginTop": "13px"
-            }
-          }
+          "children": []
         },
         {
           "type": "Input",
@@ -417,16 +377,78 @@
           "namespace": "antd",
           "props": {
             "key": "58",
-            "width": "183pxpxpxpxpxpx",
-            "height": "33pxpxpxpxpxpx",
+            "width": 173,
+            "height": 34,
+            "x": 43,
+            "y": 19,
+            "placeholder": "Please Enter School",
+            "style": {
+              "width": "173px",
+              "height": "34px",
+              "marginLeft": "43px",
+              "marginTop": "19px"
+            },
+            "keyCode": 0,
+            "logs": []
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "width": "173pxpxpx",
+            "height": "33pxpxpx",
+            "x": 283,
+            "y": 21,
+            "placeholder": "Please Enter Name",
+            "key": "59",
+            "style": {
+              "width": "173pxpxpxpx",
+              "height": "33pxpxpxpx",
+              "marginLeft": "283px",
+              "marginTop": "21px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "60",
+            "width": "178pxpxpxpxpxpxpxpxpx",
+            "height": "35pxpxpxpxpxpxpxpxpx",
+            "x": 622,
+            "placeholder": "Please Enter Age",
+            "y": 19,
+            "style": {
+              "width": "178pxpxpxpxpxpxpxpxpxpx",
+              "height": "35pxpxpxpxpxpxpxpxpxpx",
+              "marginLeft": "622px",
+              "marginTop": "19px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "61",
+            "width": 173,
+            "height": 34,
             "x": 984,
             "placeholder": "Please Enter Sex",
-            "y": 25,
+            "y": 23,
             "style": {
-              "width": "183pxpxpxpxpxpxpx",
-              "height": "33pxpxpxpxpxpxpx",
+              "width": "173px",
+              "height": "34px",
               "marginLeft": "984px",
-              "marginTop": "25px"
+              "marginTop": "23px"
             }
           }
         }
