@@ -65,6 +65,13 @@ class PageForDesk extends Component {
   bindDragSizeChange = func => {
     this.onDragSizeChange = func;
   };
+
+  /**
+   * 右键选中一个值的时候触发
+   */
+  bindPropSelectChange = func => {
+    this.bindPropSelectChange = func;
+  };
   /**
  * 
  * @param {*} func 
@@ -151,7 +158,6 @@ class PageForDesk extends Component {
       nextProps.location.pathname !== this.props.location.pathname ||
       isEqual(nextProps.location.query, this.props.location.query)
     ) {
-      console.log("工作区接受到nextProps===", nextProps);
       const pathname = getPagePathName(nextProps.location.pathname);
       // "/structor-deskpage/new-menu"
       const nextPagePath = this.getPagePath(pathname);
@@ -195,7 +201,8 @@ class PageForDesk extends Component {
       {
         isEditModeOn: isEditModeOn
       },
-      this.onDragSizeChange
+      this.onDragSizeChange,
+      this.bindPropSelectChange
     );
     this.setState({
       pathname: pathname,

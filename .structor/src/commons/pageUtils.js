@@ -40,7 +40,8 @@ export function createElement(
   initialState,
   mouseDownHandler,
   options,
-  dragSizeChangeCallback
+  dragSizeChangeCallback,
+  bindPropSelectChange
 ) {
   let modelNode = node.modelNode;
   // 找到每一个的modelNode
@@ -87,6 +88,7 @@ export function createElement(
         // 下面是作为props传入到我们的高阶组件的
         wrappedProps: {
           ...props,
+          bindPropSelectChange,
           onMouseDown: mouseDownHandler,
           disabled: false,
           key: node.key,
@@ -172,7 +174,8 @@ export function createElements(
   initialState,
   mouseDownHandler,
   options,
-  dragSizeChangeCallback
+  dragSizeChangeCallback,
+  bindPropSelectChange
 ) {
   console.log("dragSizeChangeCallback====", dragSizeChangeCallback);
   initialState.elements = {};
@@ -185,7 +188,8 @@ export function createElements(
           initialState,
           mouseDownHandler,
           options,
-          dragSizeChangeCallback
+          dragSizeChangeCallback,
+          bindPropSelectChange
         )
       );
     });

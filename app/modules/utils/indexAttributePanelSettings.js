@@ -1,2 +1,2 @@
 import InputAttribute from "./ComponentSetting/Input";
-export { InputAttribute };
+export default { ...InputAttribute };

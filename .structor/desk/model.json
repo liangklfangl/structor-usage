@@ -258,8 +258,20 @@
             {
               "type": "span",
               "text": "Link text"
+            },
+            {
+              "type": "Input",
+              "variant": "default",
+              "children": [],
+              "namespace": "antd"
             }
           ]
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
         }
       ]
     },
@@ -304,13 +316,40 @@
               ]
             }
           ]
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "60",
+            "width": 174,
+            "height": 50,
+            "x": 10,
+            "y": 10,
+            "style": {
+              "width": "174px",
+              "height": "50px",
+              "marginLeft": "10px",
+              "marginTop": "10px"
+            },
+            "combinedProps": {
+              "addonAfter": null,
+              "addonBefore": null,
+              "defaultValue": "",
+              "disabled": false,
+              "id": "",
+              "prefix": "",
+              "size": "default",
+              "suffix": "",
+              "type": "\u001dtext",
+              "value": "",
+              "onPressEnter": null
+            }
+          }
         }
       ]
-    },
-    {
-      "pageName": "Page63",
-      "pagePath": "/antd",
-      "children": []
     },
     {
       "pageName": "Page56",
@@ -345,111 +384,276 @@
           ]
         },
         {
-          "type": "Pagination",
-          "variant": "default",
-          "children": [],
-          "props": {
-            "total": 100
-          }
-        },
-        {
-          "type": "Pagination",
-          "variant": "default",
-          "children": []
-        },
-        {
-          "type": "Pagination",
-          "variant": "default",
-          "children": [],
-          "props": {
-            "total": 200
-          }
-        },
-        {
-          "type": "Pagination",
-          "variant": "default",
-          "children": []
-        },
-        {
           "type": "Input",
           "variant": "default",
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "58",
-            "width": 173,
-            "height": 34,
-            "x": 43,
-            "y": 19,
-            "placeholder": "Please Enter School",
-            "style": {
+            "width": "173pxpx",
+            "height": "34pxpx",
+            "x": 11,
+            "y": 8,
+            "combinedProps": {
+              "addonAfter": null,
+              "addonBefore": null,
+              "defaultValue": "",
+              "disabled": false,
+              "id": "",
+              "prefix": "",
+              "size": "default",
+              "suffix": "",
+              "value": "",
+              "onPressEnter": null,
+              "key": "58",
+              "ref": null,
+              "props": {
+                "elementKey": "58",
+                "type": "Input",
+                "initialState": {
+                  "elements": {
+                    "54": {
+                      "type": "div"
+                    },
+                    "55": {
+                      "type": "div"
+                    },
+                    "56": {
+                      "type": "h3"
+                    },
+                    "57": {
+                      "type": "Input"
+                    }
+                  },
+                  "onMouseDown": {}
+                },
+                "wrappedProps": {
+                  "key": "58",
+                  "disabled": false,
+                  "elementKey": "58",
+                  "type": "Input",
+                  "initialState": {
+                    "elements": {
+                      "54": {
+                        "type": "div"
+                      },
+                      "55": {
+                        "type": "div"
+                      },
+                      "56": {
+                        "type": "h3"
+                      },
+                      "57": {
+                        "type": "Input"
+                      }
+                    },
+                    "onMouseDown": {}
+                  },
+                  "wrappedProps": {
+                    "key": "59",
+                    "ref": null,
+                    "props": {
+                      "elementKey": "59",
+                      "type": "Input",
+                      "initialState": {
+                        "elements": {
+                          "54": {
+                            "type": "div"
+                          },
+                          "55": {
+                            "type": "div"
+                          },
+                          "56": {
+                            "type": "h3"
+                          },
+                          "57": {
+                            "type": "Input"
+                          }
+                        },
+                        "onMouseDown": {}
+                      },
+                      "wrappedProps": {
+                        "key": "59",
+                        "disabled": false,
+                        "elementKey": "59",
+                        "type": "Input",
+                        "initialState": {
+                          "elements": {
+                            "54": {
+                              "type": "div"
+                            },
+                            "55": {
+                              "type": "div"
+                            },
+                            "56": {
+                              "type": "h3"
+                            },
+                            "57": {
+                              "type": "Input"
+                            }
+                          },
+                          "onMouseDown": {}
+                        }
+                      },
+                      "wrappedComponent": "Input",
+                      "children": null
+                    },
+                    "_owner": null,
+                    "_store": {}
+                  },
+                  "wrappedComponent": "Input",
+                  "children": null
+                },
+                "wrappedComponent": "Input",
+                "children": null
+              },
+              "_owner": null,
+              "_store": {},
               "width": "173px",
               "height": "34px",
-              "marginLeft": "43px",
-              "marginTop": "19px"
+              "x": 11,
+              "y": 8,
+              "combinedProps": {
+                "key": "58",
+                "ref": null,
+                "props": {
+                  "elementKey": "58",
+                  "type": "Input",
+                  "initialState": {
+                    "elements": {
+                      "54": {
+                        "type": "div"
+                      },
+                      "55": {
+                        "type": "div"
+                      },
+                      "56": {
+                        "type": "h3"
+                      },
+                      "57": {
+                        "type": "Input"
+                      }
+                    },
+                    "onMouseDown": {}
+                  },
+                  "wrappedProps": {
+                    "elementKey": "58",
+                    "type": "Input",
+                    "initialState": {
+                      "elements": {
+                        "54": {
+                          "type": "div"
+                        },
+                        "55": {
+                          "type": "div"
+                        },
+                        "56": {
+                          "type": "h3"
+                        },
+                        "57": {
+                          "type": "Input"
+                        }
+                      },
+                      "onMouseDown": {}
+                    },
+                    "wrappedProps": {
+                      "key": "59",
+                      "ref": null,
+                      "props": {
+                        "elementKey": "59",
+                        "type": "\u001dtext",
+                        "initialState": {
+                          "elements": {
+                            "54": {
+                              "type": "div"
+                            },
+                            "55": {
+                              "type": "div"
+                            },
+                            "56": {
+                              "type": "h3"
+                            },
+                            "57": {
+                              "type": "Input"
+                            }
+                          },
+                          "onMouseDown": {}
+                        },
+                        "wrappedProps": {
+                          "key": "59",
+                          "disabled": false,
+                          "elementKey": "59",
+                          "type": "\u001dtext",
+                          "initialState": {
+                            "elements": {
+                              "54": {
+                                "type": "div"
+                              },
+                              "55": {
+                                "type": "div"
+                              },
+                              "56": {
+                                "type": "h3"
+                              },
+                              "57": {
+                                "type": "Input"
+                              }
+                            },
+                            "onMouseDown": {}
+                          }
+                        },
+                        "wrappedComponent": "\u001dtext",
+                        "children": null
+                      },
+                      "_owner": null,
+                      "_store": {}
+                    },
+                    "wrappedComponent": "\u001dtext",
+                    "children": null,
+                    "key": "58",
+                    "disabled": false
+                  },
+                  "wrappedComponent": "Input",
+                  "children": null
+                },
+                "_owner": null,
+                "_store": {}
+              },
+              "style": {
+                "width": "undefinedpx",
+                "height": "undefinedpx",
+                "marginLeft": "undefinedpx",
+                "marginTop": "undefinedpx"
+              },
+              "elementKey": "57",
+              "initialState": {
+                "elements": {
+                  "54": {
+                    "type": "div"
+                  },
+                  "55": {
+                    "type": "div"
+                  },
+                  "56": {
+                    "type": "h3"
+                  },
+                  "57": {
+                    "type": "Input"
+                  }
+                },
+                "onMouseDown": {}
+              },
+              "children": null
             },
-            "keyCode": 0,
-            "logs": []
-          }
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "width": "173pxpxpx",
-            "height": "33pxpxpx",
-            "x": 283,
-            "y": 21,
-            "placeholder": "Please Enter Name",
-            "key": "59",
+            "key": "57",
             "style": {
-              "width": "173pxpxpxpx",
-              "height": "33pxpxpxpx",
-              "marginLeft": "283px",
-              "marginTop": "21px"
-            }
-          }
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "60",
-            "width": "178pxpxpxpxpxpxpxpxpx",
-            "height": "35pxpxpxpxpxpxpxpxpx",
-            "x": 622,
-            "placeholder": "Please Enter Age",
-            "y": 19,
-            "style": {
-              "width": "178pxpxpxpxpxpxpxpxpxpx",
-              "height": "35pxpxpxpxpxpxpxpxpxpx",
-              "marginLeft": "622px",
-              "marginTop": "19px"
-            }
-          }
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "61",
-            "width": 173,
-            "height": 34,
-            "x": 984,
-            "placeholder": "Please Enter Sex",
-            "y": 23,
-            "style": {
-              "width": "173px",
-              "height": "34px",
-              "marginLeft": "984px",
-              "marginTop": "23px"
-            }
+              "width": "173pxpxpx",
+              "height": "34pxpxpx",
+              "marginLeft": "11px",
+              "marginTop": "8px"
+            },
+            "size": "small",
+            "disabled": true,
+            "type": "textarea"
           }
         }
       ]

@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-/**
- * React.createElement(
-     ComponentWrapper,
-      wrapperProps,
-      nestedElements
-);
- */
 class ComponentWrapper extends Component {
   constructor(props, content) {
     super(props, content);

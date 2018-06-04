@@ -26,7 +26,6 @@ const flexibleConfigurationLists = {
         type: "string|ReactNode".split("|"),
         label: "后置标签"
       },
-      //   string|ReactNode
       defaultValue: {
         defaultValue: "",
         value: "",
@@ -36,7 +35,7 @@ const flexibleConfigurationLists = {
       disabled: {
         type: "enum",
         label: "是否禁用",
-        enums: [true, false],
+        enums: ["是", "否"],
         value: false,
         defaultValue: false
       },
