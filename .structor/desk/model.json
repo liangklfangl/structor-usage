@@ -1,321 +1,26 @@
 {
   "pages": [
     {
-      "pageName": "HomePage",
-      "pagePath": "/home",
+      "pageName": "Page58",
+      "pagePath": "/",
       "children": [
-        {
-          "type": "RaisedButton",
-          "variant": "default",
-          "children": []
-        },
-        {
-          "type": "code",
-          "variant": "default",
-          "props": {},
-          "children": [
-            {
-              "type": "span",
-              "text": "Code text line",
-              "children": [
-                {
-                  "type": "a",
-                  "variant": "default",
-                  "props": {
-                    "href": "#"
-                  },
-                  "children": [
-                    {
-                      "type": "a",
-                      "variant": "default",
-                      "props": {
-                        "href": "#"
-                      },
-                      "children": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "pageName": "Page73",
-      "pagePath": "/newMenu",
-      "children": [
-        {
-          "type": "Counter",
-          "props": {},
-          "children": [],
-          "namespace": "antd"
-        },
-        {
-          "type": "Counter",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter1",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter1",
-          "variant": "default",
-          "children": [],
-          "namespace": "Counter"
-        },
-        {
-          "type": "Counter1",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd"
-        },
-        {
-          "type": "Counter3",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd"
-        },
-        {
-          "type": "Counter1",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        }
-      ]
-    },
-    {
-      "pageName": "Page86",
-      "pagePath": "/new-menu",
-      "children": [
-        {
-          "type": "Counter1",
-          "props": {},
-          "children": [],
-          "namespace": "antd"
-        },
-        {
-          "type": "Menu",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        },
-        {
-          "type": "Counter",
-          "variant": "default",
-          "children": [],
-          "namespace": "Menu"
-        }
-      ]
-    },
-    {
-      "pageName": "Page40",
-      "pagePath": "/test",
-      "children": [
-        {
-          "type": "span",
-          "variant": "default",
-          "props": {},
-          "children": [],
-          "text": "Text"
-        },
-        {
-          "type": "span",
-          "variant": "default",
-          "props": {},
-          "children": [],
-          "text": "Text"
-        },
-        {
-          "type": "a",
-          "variant": "default",
-          "props": {
-            "href": "#"
-          },
-          "children": [
-            {
-              "type": "span",
-              "text": "Link text"
-            },
-            {
-              "type": "Input",
-              "variant": "default",
-              "children": [],
-              "namespace": "antd"
-            }
-          ]
-        },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
-        }
-      ]
-    },
-    {
-      "pageName": "Page44",
-      "pagePath": "/select",
-      "children": []
-    },
-    {
-      "pageName": "Page61",
-      "pagePath": "/publish",
-      "children": [
-        {
-          "type": "div",
+          "namespace": "antd",
           "props": {
+            "key": "6",
+            "x": 649,
+            "y": 105,
             "style": {
-              "display": "flex",
-              "justifyContent": "center",
-              "alignItems": "center",
-              "padding": "1em"
-            }
-          },
-          "children": [
-            {
-              "type": "div",
-              "children": [
-                {
-                  "type": "h3",
-                  "props": {
-                    "style": {
-                      "padding": "1em",
-                      "textAlign": "center"
-                    }
-                  },
-                  "children": [
-                    {
-                      "type": "span",
-                      "text": "Click on me and start creating a new cool component."
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+              "width": "216px",
+              "height": "72px"
+            },
+            "width": 216,
+            "height": 72,
+            "defaultValue": "覃亮"
+          }
         },
         {
           "type": "Input",
@@ -323,102 +28,34 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "60",
-            "width": 174,
-            "height": 50,
+            "key": "8",
+            "x": 372,
+            "y": 106,
+            "style": {
+              "width": "201px",
+              "height": "76px"
+            },
+            "width": 201,
+            "height": 76,
+            "defaultValue": "方康蕾"
+          }
+        },
+        {
+          "type": "Counter",
+          "props": {
+            "key": "10",
+            "width": 100,
+            "height": 168,
             "x": 10,
             "y": 10,
             "style": {
-              "width": "174px",
-              "height": "50px",
-              "marginLeft": "10px",
-              "marginTop": "10px"
-            },
-            "combinedProps": {
-              "addonAfter": null,
-              "addonBefore": null,
-              "defaultValue": "",
-              "disabled": false,
-              "id": "",
-              "prefix": "",
-              "size": "default",
-              "suffix": "",
-              "type": "\u001dtext",
-              "value": "",
-              "onPressEnter": null
-            }
-          }
-        }
-      ]
-    },
-    {
-      "pageName": "Page56",
-      "pagePath": "/drag",
-      "children": [
-        {
-          "type": "div",
-          "props": {
-            "style": {
-              "display": "flex",
-              "justifyContent": "center",
-              "alignItems": "center",
-              "padding": "1em"
+              "width": "100px",
+              "height": "168px"
             }
           },
-          "children": [
-            {
-              "type": "div",
-              "children": [
-                {
-                  "type": "h3",
-                  "props": {
-                    "style": {
-                      "padding": "1em",
-                      "textAlign": "center"
-                    }
-                  },
-                  "children": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "Input",
-          "variant": "default",
           "children": [],
           "namespace": "antd",
-          "props": {
-            "width": 179,
-            "height": 34,
-            "x": 1051,
-            "y": 10,
-            "key": "57",
-            "style": {
-              "width": "179px",
-              "height": "34px"
-            },
-            "addonBefore": "http://",
-            "addonAfter": ".com"
-          }
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "58",
-            "width": "310px",
-            "height": "34px",
-            "x": 473,
-            "y": 239,
-            "style": {
-              "width": "310px",
-              "height": "34px"
-            },
-            "addonAfter": "https://"
-          }
+          "variant": "default"
         }
       ]
     }

@@ -97,6 +97,7 @@ class PageForDesk extends Component {
    * 
    * @param {*} func 
    * 组件鼠标按下组件的回调函数
+   * 阻止鼠标点击组件的编辑逻辑
    */
   bindOnComponentMouseDown(func) {
     this.onComponentMouseDown = func;

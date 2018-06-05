@@ -75,7 +75,6 @@ export default function HOC(WrappedComponent) {
         ...this.state.combinedProps,
         [key]: transformProps(value)
       };
-      console.log("菜单点击设置得值为=======", combinedProps);
       // 合成props
       this.setState({
         combinedProps
@@ -142,13 +141,6 @@ export default function HOC(WrappedComponent) {
     }
 
     /**
-     * 被拖动元素的当前位置
-     */
-    dragElementPosition(left, top) {
-      console.log("left,top----", left, top);
-    }
-
-    /**
      * 
      * @param {*} e
      * 鼠标移动事件 
@@ -159,6 +151,7 @@ export default function HOC(WrappedComponent) {
       this.position.clientX = e.clientX;
       this.position.clientY = e.clientY;
       const { x, y } = this.state;
+      // 获取到当前元素的x,y坐标
       const newX = x + this.position.deltaX;
       const newY = y + this.position.deltaY;
       this.setState({
@@ -178,9 +171,13 @@ export default function HOC(WrappedComponent) {
         .off("mousemove", this.mousemove)
         .off("mouseup", this.mouseup);
       const { x, y } = this.state;
-      if (this.props.bindEnumContextMenuSelect) {
-        this.props.bindEnumContextMenuSelect(this.props.elementKey, "x", x);
-        this.props.bindEnumContextMenuSelect(this.props.elementKey, "y", y);
+      if (this.props.dragSizeChangeCallback) {
+        const updatedProps = {
+          key: this.props.elementKey,
+          x: this.state.x,
+          y: this.state.y
+        };
+        this.props.dragSizeChangeCallback(updatedProps);
       }
     }
     /**
@@ -193,6 +190,7 @@ export default function HOC(WrappedComponent) {
         // 在原有的可移动元素上绑定mousedown事件
         $(`${wrappedElClss}`).mousedown(e => {
           this.position.clientX = e.clientX;
+          this.position.clientY = e.clientY;
           $(document)
             .on("mousemove", this.mousemove)
             .on("mouseup", this.mouseup);
