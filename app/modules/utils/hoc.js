@@ -240,8 +240,7 @@ export default function HOC(WrappedComponent) {
     }
 
     componentDidMount() {
-      const { style, x = 10, y = 10 } = this.props;
-      const { height = 50, width = 100 } = style || {};
+      const { width = 100, height = 50, x = 10, y = 10 } = this.props;
       const { type: ComponentType } = this.props;
       // 设置右键面板
       const ComponentSupportedProps =
@@ -274,13 +273,18 @@ export default function HOC(WrappedComponent) {
           componentsDefs[ComponentType].props) ||
         {};
       const WrapperProps = getProps(ComponentSupportedProps);
-      // 包裹组件的值
-      console.log("设置到内层组件的值为====", WrapperProps, this.props);
       const rightClickPanels = this.generateRightPanelSettings(
         ComponentSupportedProps
       );
       console.log("render中组合后的props为===", this.props);
+      const deleteStyleProps = JSON.parse(JSON.stringify(this.props));
+      delete deleteStyleProps.style;
       // 右键显示的值
+      const { width, height } = deleteStyleProps;
+      const style = {
+        width,
+        height
+      };
       return (
         <Rnd
           ref={cpt => {
@@ -291,7 +295,6 @@ export default function HOC(WrappedComponent) {
           size={{ width: this.state.width, height: this.state.height }}
           position={{ x: this.state.x, y: this.state.y }}
           onDragStop={(e, d) => {
-            const { width, height } = this.state;
             const updatedProps = {
               ...this.state,
               key: this.props.elementKey,
@@ -332,17 +335,13 @@ export default function HOC(WrappedComponent) {
           <ContextMenuTrigger id={uniqueRightPanelKey}>
             <WrappedComponent
               className={wrappedElClss}
-              {...this.props}
-              style={{ width: this.state.width, height: this.state.height }}
+              {...deleteStyleProps}
+              style={style}
               onMouseDown={() => {
                 //内嵌组件被点击
                 //  this.props &&
                 //  this.props.onMouseDown &&
                 //this.props.onMouseDown(this.props.elementKey);
-              }}
-              //点击这个组件的时候需要弹出弹窗修改属性
-              ref={cmpt => {
-                this.wrappedComponent = cmpt;
               }}
             />
           </ContextMenuTrigger>

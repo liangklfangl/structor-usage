@@ -1,0 +1,13 @@
+#### 1.为什么要用state控制位置
+```js
+   state = {
+      width: 50,
+      height: 100,
+      x: 10,
+      y: 10,
+     combinedProps: {}
+    };
+
+```
+(1)不用在mousemove的时候不断的修改store要求页面重新渲染，而只要mouseup后才会触发
+(2)combinedProps是通过某种类型的组件应该具有的props+已经保存的props合成的，每次都要更新
