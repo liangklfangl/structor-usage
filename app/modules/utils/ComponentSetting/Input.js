@@ -24,7 +24,7 @@ const flexibleConfigurationLists = {
         defaultValue: null,
         value: null,
         type: "string|ReactNode".split("|"),
-        label: "后置标签"
+        label: "前置标签"
       },
       defaultValue: {
         defaultValue: "",

@@ -389,271 +389,35 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "width": "173pxpx",
-            "height": "34pxpx",
-            "x": 11,
-            "y": 8,
-            "combinedProps": {
-              "addonAfter": null,
-              "addonBefore": null,
-              "defaultValue": "",
-              "disabled": false,
-              "id": "",
-              "prefix": "",
-              "size": "default",
-              "suffix": "",
-              "value": "",
-              "onPressEnter": null,
-              "key": "58",
-              "ref": null,
-              "props": {
-                "elementKey": "58",
-                "type": "Input",
-                "initialState": {
-                  "elements": {
-                    "54": {
-                      "type": "div"
-                    },
-                    "55": {
-                      "type": "div"
-                    },
-                    "56": {
-                      "type": "h3"
-                    },
-                    "57": {
-                      "type": "Input"
-                    }
-                  },
-                  "onMouseDown": {}
-                },
-                "wrappedProps": {
-                  "key": "58",
-                  "disabled": false,
-                  "elementKey": "58",
-                  "type": "Input",
-                  "initialState": {
-                    "elements": {
-                      "54": {
-                        "type": "div"
-                      },
-                      "55": {
-                        "type": "div"
-                      },
-                      "56": {
-                        "type": "h3"
-                      },
-                      "57": {
-                        "type": "Input"
-                      }
-                    },
-                    "onMouseDown": {}
-                  },
-                  "wrappedProps": {
-                    "key": "59",
-                    "ref": null,
-                    "props": {
-                      "elementKey": "59",
-                      "type": "Input",
-                      "initialState": {
-                        "elements": {
-                          "54": {
-                            "type": "div"
-                          },
-                          "55": {
-                            "type": "div"
-                          },
-                          "56": {
-                            "type": "h3"
-                          },
-                          "57": {
-                            "type": "Input"
-                          }
-                        },
-                        "onMouseDown": {}
-                      },
-                      "wrappedProps": {
-                        "key": "59",
-                        "disabled": false,
-                        "elementKey": "59",
-                        "type": "Input",
-                        "initialState": {
-                          "elements": {
-                            "54": {
-                              "type": "div"
-                            },
-                            "55": {
-                              "type": "div"
-                            },
-                            "56": {
-                              "type": "h3"
-                            },
-                            "57": {
-                              "type": "Input"
-                            }
-                          },
-                          "onMouseDown": {}
-                        }
-                      },
-                      "wrappedComponent": "Input",
-                      "children": null
-                    },
-                    "_owner": null,
-                    "_store": {}
-                  },
-                  "wrappedComponent": "Input",
-                  "children": null
-                },
-                "wrappedComponent": "Input",
-                "children": null
-              },
-              "_owner": null,
-              "_store": {},
-              "width": "173px",
-              "height": "34px",
-              "x": 11,
-              "y": 8,
-              "combinedProps": {
-                "key": "58",
-                "ref": null,
-                "props": {
-                  "elementKey": "58",
-                  "type": "Input",
-                  "initialState": {
-                    "elements": {
-                      "54": {
-                        "type": "div"
-                      },
-                      "55": {
-                        "type": "div"
-                      },
-                      "56": {
-                        "type": "h3"
-                      },
-                      "57": {
-                        "type": "Input"
-                      }
-                    },
-                    "onMouseDown": {}
-                  },
-                  "wrappedProps": {
-                    "elementKey": "58",
-                    "type": "Input",
-                    "initialState": {
-                      "elements": {
-                        "54": {
-                          "type": "div"
-                        },
-                        "55": {
-                          "type": "div"
-                        },
-                        "56": {
-                          "type": "h3"
-                        },
-                        "57": {
-                          "type": "Input"
-                        }
-                      },
-                      "onMouseDown": {}
-                    },
-                    "wrappedProps": {
-                      "key": "59",
-                      "ref": null,
-                      "props": {
-                        "elementKey": "59",
-                        "type": "\u001dtext",
-                        "initialState": {
-                          "elements": {
-                            "54": {
-                              "type": "div"
-                            },
-                            "55": {
-                              "type": "div"
-                            },
-                            "56": {
-                              "type": "h3"
-                            },
-                            "57": {
-                              "type": "Input"
-                            }
-                          },
-                          "onMouseDown": {}
-                        },
-                        "wrappedProps": {
-                          "key": "59",
-                          "disabled": false,
-                          "elementKey": "59",
-                          "type": "\u001dtext",
-                          "initialState": {
-                            "elements": {
-                              "54": {
-                                "type": "div"
-                              },
-                              "55": {
-                                "type": "div"
-                              },
-                              "56": {
-                                "type": "h3"
-                              },
-                              "57": {
-                                "type": "Input"
-                              }
-                            },
-                            "onMouseDown": {}
-                          }
-                        },
-                        "wrappedComponent": "\u001dtext",
-                        "children": null
-                      },
-                      "_owner": null,
-                      "_store": {}
-                    },
-                    "wrappedComponent": "\u001dtext",
-                    "children": null,
-                    "key": "58",
-                    "disabled": false
-                  },
-                  "wrappedComponent": "Input",
-                  "children": null
-                },
-                "_owner": null,
-                "_store": {}
-              },
-              "style": {
-                "width": "undefinedpx",
-                "height": "undefinedpx",
-                "marginLeft": "undefinedpx",
-                "marginTop": "undefinedpx"
-              },
-              "elementKey": "57",
-              "initialState": {
-                "elements": {
-                  "54": {
-                    "type": "div"
-                  },
-                  "55": {
-                    "type": "div"
-                  },
-                  "56": {
-                    "type": "h3"
-                  },
-                  "57": {
-                    "type": "Input"
-                  }
-                },
-                "onMouseDown": {}
-              },
-              "children": null
-            },
+            "width": 179,
+            "height": 34,
+            "x": 1051,
+            "y": 10,
             "key": "57",
             "style": {
-              "width": "173pxpxpx",
-              "height": "34pxpxpx",
-              "marginLeft": "11px",
-              "marginTop": "8px"
+              "width": "179px",
+              "height": "34px"
             },
-            "size": "small",
-            "disabled": true,
-            "type": "textarea"
+            "addonBefore": "http://",
+            "addonAfter": ".com"
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "58",
+            "width": "310px",
+            "height": "34px",
+            "x": 473,
+            "y": 239,
+            "style": {
+              "width": "310px",
+              "height": "34px"
+            },
+            "addonAfter": "https://"
           }
         }
       ]

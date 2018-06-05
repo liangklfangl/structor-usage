@@ -41,13 +41,15 @@ export function createElement(
   mouseDownHandler,
   options,
   dragSizeChangeCallback,
-  bindPropSelectChange
+  bindPropSelectChange,
+  bindEnumContextMenuSelect
 ) {
   let modelNode = node.modelNode;
   // 找到每一个的modelNode
   let type = findComponent(components, modelNode.type, modelNode.namespace);
   // 创建元素类型
   let props = extend({}, modelNode.props, { key: node.key });
+  console.log("node.props====", props);
   if (node.props) {
     // 为每一个props添加一个新的组件类型
     forOwn(node.props, (prop, propName) => {
@@ -80,6 +82,7 @@ export function createElement(
       // 默认的isEditModeOn为true表示编辑模式
       const wrapperProps = {
         key: node.key,
+        ...props,
         onMouseDown: mouseDownHandler,
         elementKey: node.key,
         type: modelNode.type,
@@ -87,7 +90,6 @@ export function createElement(
         // 默认的组件配置数据
         // 下面是作为props传入到我们的高阶组件的
         wrappedProps: {
-          ...props,
           bindPropSelectChange,
           onMouseDown: mouseDownHandler,
           disabled: false,
@@ -96,12 +98,14 @@ export function createElement(
           onMouseDown: mouseDownHandler,
           elementKey: node.key,
           type: modelNode.type,
-          initialState: initialState
+          bindEnumContextMenuSelect,
+          initialState: initialState,
+          ...props
         },
         // 这是被包裹的元素添加的属性
         wrappedComponent: type
       };
-
+      console.log("wrapperProps====", wrapperProps);
       // ComponentWrapper为要新构建的属性
       result = React.createElement(
         ComponentWrapper,
@@ -175,7 +179,8 @@ export function createElements(
   mouseDownHandler,
   options,
   dragSizeChangeCallback,
-  bindPropSelectChange
+  bindPropSelectChange,
+  bindEnumContextMenuSelect
 ) {
   console.log("dragSizeChangeCallback====", dragSizeChangeCallback);
   initialState.elements = {};
@@ -189,7 +194,8 @@ export function createElements(
           mouseDownHandler,
           options,
           dragSizeChangeCallback,
-          bindPropSelectChange
+          bindPropSelectChange,
+          bindEnumContextMenuSelect
         )
       );
     });

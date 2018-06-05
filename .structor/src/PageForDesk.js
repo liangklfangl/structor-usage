@@ -67,6 +67,13 @@ class PageForDesk extends Component {
   };
 
   /**
+   * 枚举类型的contextMenu被选择
+   */
+  bindEnumContextMenuSelect = func => {
+    this.bindEnumContextMenuSelect = func;
+  };
+
+  /**
    * 右键选中一个值的时候触发
    */
   bindPropSelectChange = func => {
@@ -185,7 +192,7 @@ class PageForDesk extends Component {
   }
 
   /**
-   * 根据当前页面的Model
+   * 根据当前页面的Model,每次设置了值以后我们都会重新渲染，从而所有的子组件被重新渲染
    */
   updatePageModel(options) {
     let { pathname } = options;
@@ -202,8 +209,13 @@ class PageForDesk extends Component {
         isEditModeOn: isEditModeOn
       },
       this.onDragSizeChange,
-      this.bindPropSelectChange
+      // 拖动修改props属性
+      this.bindPropSelectChange,
+      // context menu的弹出输入类型,
+      this.bindEnumContextMenuSelect
+      // 右键直接选择类型
     );
+
     this.setState({
       pathname: pathname,
       isEditModeOn: isEditModeOn,

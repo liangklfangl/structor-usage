@@ -7,3 +7,7 @@
 ### 3.支持左右键调整元素位置,最好能够全局让用户设置它
 ### 4.支持参考线 https://github.com/think2011/ref-line/blob/master/src/ref-line.js
 ### 5.所有的css都在html中引入，后面用less-loader处理
+
+### 6.createElement传入的props不对导致disable不更新
+
+### 7.type不能随意修改，我们组件依赖与他，所以text/textarea差别很大

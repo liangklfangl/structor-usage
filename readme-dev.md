@@ -44,3 +44,5 @@ setTimeout(() => {
 ```js
  _this2.menu.style.left = left + "px";
 ```
+
+### 问题4:combinedProps一直在是因为structor -v没有重启，所以内存中一直有一份数据，删除model.json数据并重启即可
