@@ -14,7 +14,6 @@ const style = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  border: "solid 1px white",
   background: "white"
 };
 
@@ -175,6 +174,8 @@ export default function HOC(WrappedComponent) {
         const updatedProps = {
           key: this.props.elementKey,
           x: this.state.x,
+          width: this.state.width,
+          height: this.state.height,
           y: this.state.y
         };
         this.props.dragSizeChangeCallback(updatedProps);
@@ -276,15 +277,6 @@ export default function HOC(WrappedComponent) {
       const rightClickPanels = this.generateRightPanelSettings(
         ComponentSupportedProps
       );
-      console.log("render中组合后的props为===", this.props);
-      const deleteStyleProps = JSON.parse(JSON.stringify(this.props));
-      delete deleteStyleProps.style;
-      // 右键显示的值
-      const { width, height } = deleteStyleProps;
-      const style = {
-        width,
-        height
-      };
       return (
         <Rnd
           ref={cpt => {
@@ -335,7 +327,7 @@ export default function HOC(WrappedComponent) {
           <ContextMenuTrigger id={uniqueRightPanelKey}>
             <WrappedComponent
               className={wrappedElClss}
-              {...deleteStyleProps}
+              {...this.props}
               style={style}
               onMouseDown={() => {
                 //内嵌组件被点击
