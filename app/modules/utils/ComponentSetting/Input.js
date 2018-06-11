@@ -64,13 +64,13 @@ const flexibleConfigurationLists = {
         defaultValue: "",
         type: "string|ReactNode".split("|")
       },
-      type: {
-        label: "Input类型",
-        value: "text",
-        defaultValue: "text",
-        type: "enum",
-        enums: ["text", "textarea"]
-      },
+      // type: {
+      //   label: "Input类型",
+      //   value: "text",
+      //   defaultValue: "text",
+      //   type: "enum",
+      //   enums: ["text", "textarea"]
+      // },
       value: {
         label: "Input类型",
         type: "string",
@@ -83,61 +83,40 @@ const flexibleConfigurationLists = {
         defaultValue: null,
         value: null
       }
-    },
-    TextArea: {
-      autosize: {
-        label: "自适应内容高度",
-        defaultValue: true,
-        value: true,
-        type: "boolean|object".split("|")
-      },
-      defaultValue: {
-        label: "输入框默认值",
-        defaultValue: "",
-        value: "",
-        type: "string"
-      },
-      value: {
-        label: "输入框值",
-        defaultValue: "",
-        value: "",
-        type: "string"
-      },
-      onPressEnter: {
-        label: "回车按键回调",
-        type: "func",
-        value: null,
-        defaultValue: null
-      }
-    },
-    Search: {
-      enterButton: {
-        label: "是否有确认按钮",
-        type: "boolean|ReactNode".split("|"),
-        defaultValue: false,
-        value: false
-      },
-      onSearch: {
-        label: "搜索或按下回车键时的回调",
-        type: "func",
-        defaultValue: null,
-        value: null
-      }
-    },
-    Group: {
-      compact: {
-        label: "是否用紧凑模式",
-        type: "boolean",
-        defaultValue: false
-      },
-      size: {
-        label: "Input.Group 中所有的 Input 的大小",
-        type: "enum",
-        enums: ["large", "default", "small"],
-        defaultValue: "default",
-        value: "default"
-      }
     }
+    // children: {
+    //   // TextArea
+    //   // 搜索
+    //   Search: {
+    //     enterButton: {
+    //       label: "是否有确认按钮",
+    //       type: "boolean|ReactNode".split("|"),
+    //       defaultValue: false,
+    //       value: false
+    //     },
+    //     onSearch: {
+    //       label: "搜索或按下回车键时的回调",
+    //       type: "func",
+    //       defaultValue: null,
+    //       value: null
+    //     }
+    //   },
+    //   // 组
+    //   Group: {
+    //     compact: {
+    //       label: "是否用紧凑模式",
+    //       type: "boolean",
+    //       defaultValue: false
+    //     },
+    //     size: {
+    //       label: "Input.Group 中所有的 Input 的大小",
+    //       type: "enum",
+    //       enums: ["large", "default", "small"],
+    //       defaultValue: "default",
+    //       value: "default"
+    //     }
+    //   }
+    // }
   }
 };
 

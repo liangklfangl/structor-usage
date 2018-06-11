@@ -23,3 +23,14 @@ export function getProps(PropsObject) {
 export function transformProps(key) {
   return key == "是" ? true : key == "否" ? false : key;
 }
+
+/**
+ * 
+ * @param {*} arr 
+ * @param {*} prop 
+ * 去重对象数组
+ */
+export function uniqueBy(arr, prop) {
+  const res = new Map();
+  return arr.filter(a => !res.has(a[prop]) && res.set(a[prop], 1));
+}

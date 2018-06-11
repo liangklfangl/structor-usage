@@ -38,7 +38,6 @@ class PageForDesk extends Component {
    * @param {*} func 
    */
   bindGetPagePath(func) {
-    // page.bindGetPagePath(pathname => graphApi.getPagePath(pathname));
     this.getPagePath = func;
   }
 
@@ -66,6 +65,12 @@ class PageForDesk extends Component {
     this.onDragSizeChange = func;
   };
 
+  /**
+   * 直接设置属性:没有弹出提示
+   */
+  settingPropsDirectly = func => {
+    this.settingPropsDirectly = func;
+  };
   /**
    * 枚举类型的contextMenu被选择
    */
@@ -103,6 +108,14 @@ class PageForDesk extends Component {
     this.onComponentMouseDown = func;
   }
 
+  /**
+   * 
+   * @param {*} func 
+   * Table.columns等复杂props的修改
+   */
+  settingArrayObjectProps(func) {
+    this.settingArrayObjectProps = func;
+  }
   /**
    * 
    * @param {*} func
@@ -205,6 +218,7 @@ class PageForDesk extends Component {
     this.elementTree = createElements(
       pageModel,
       this.initialState,
+      // 默认state
       this.onComponentMouseDown,
       {
         isEditModeOn: isEditModeOn
@@ -213,8 +227,14 @@ class PageForDesk extends Component {
       // 拖动修改props属性
       this.bindPropSelectChange,
       // context menu的弹出输入类型,
-      this.bindEnumContextMenuSelect
+      this.bindEnumContextMenuSelect,
       // 右键直接选择类型
+      {
+        propsUtils: {
+          settingArrayObjectProps: this.settingArrayObjectProps,
+          settingPropsDirectly: this.settingPropsDirectly
+        }
+      }
     );
 
     this.setState({

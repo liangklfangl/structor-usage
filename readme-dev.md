@@ -44,5 +44,9 @@ setTimeout(() => {
 ```js
  _this2.menu.style.left = left + "px";
 ```
+modules/ContextMenu.js
 
 ### 问题4:combinedProps一直在是因为structor -v没有重启，所以内存中一直有一份数据，删除model.json数据并重启即可
+
+### 问题5:开发提示
+(1)如果一份老数据不能拖动的情况下，可以考虑吧老数据删除掉，重新拖动元素。这就是遇到不能resize的情况下的解决方案

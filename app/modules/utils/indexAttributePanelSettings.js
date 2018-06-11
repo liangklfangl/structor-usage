@@ -1,2 +1,4 @@
 import InputAttribute from "./ComponentSetting/Input";
-export default { ...InputAttribute };
+import TextAreaAttribute from "./ComponentSetting/TextArea";
+import TableAttribute from "./ComponentSetting/Table";
+export default { ...InputAttribute, ...TextAreaAttribute, ...TableAttribute };

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
+/**
+ * 根据props创建自己的组件
+ */
 class ComponentWrapper extends Component {
   constructor(props, content) {
     super(props, content);
@@ -13,12 +16,10 @@ class ComponentWrapper extends Component {
   }
 
   subscribeToInitialState() {
-    console.log("subscribeToInitialState subscribeToInitialState");
     const { onMouseDown, initialState, elementKey, type } = this.props;
     // 默认的state
     if (initialState) {
       initialState.onMouseDown = {};
-      // elements[elementkEY]
       initialState.elements[elementKey] = {
         type,
         getDOMNode: () => {
@@ -35,6 +36,7 @@ class ComponentWrapper extends Component {
   initDOMNode() {
     if (!this.$DOMNode) {
       this.$DOMNode = $(ReactDOM.findDOMNode(this));
+      console.log('this.$DOMNode inner====',this.$DOMNode);
       this.$DOMNode
         .on("mousedown", this.handleMouseDown)
         // 点击鼠标的回调
@@ -88,7 +90,7 @@ class ComponentWrapper extends Component {
   /**
    * 
    * @param {*} e 
-   * 鼠标点击事件
+   * 鼠标点击事件,回调mousedown
    */
   handleMouseDown(e) {
     if (!e.shiftKey) {
@@ -112,6 +114,7 @@ class ComponentWrapper extends Component {
    * 鼠标移动 
    */
   handleMouseOver(e) {
+    console.log('handleMouseOver ');
     const { initialState, elementKey, type } = this.props;
     if (initialState && initialState.onMouseOver) {
       this.initDOMNode();
@@ -150,12 +153,12 @@ class ComponentWrapper extends Component {
       e.preventDefault();
     }
   }
-
   render() {
     const { wrappedComponent, wrappedProps, children } = this.props;
-    console.log("高阶组件接受到的props值===", wrappedProps);
-    // 包裹的元素类型+包裹的元素的方法+子级元素
-    return React.createElement(wrappedComponent, wrappedProps, children);
+    console.log('wrappedProps====',wrappedProps);
+    return React.createElement(wrappedComponent, {
+      ...wrappedProps,
+    }, children);
   }
 }
 

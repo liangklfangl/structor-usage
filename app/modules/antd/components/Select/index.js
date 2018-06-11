@@ -1,2 +1,3 @@
 import { Select } from "antd";
-export default Select;
+import hoc from "../../../utils/hoc";
+export default hoc(Select);
