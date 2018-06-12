@@ -7,16 +7,18 @@ import {
   ContextMenuTrigger,
   SubMenu
 } from "react-contextmenu";
+import { createStructuredSelector } from "reselect";
+import R from "ramda";
 import { LEFT, RIGHT, DOWN, UP, STEP } from "./const";
 import { getProps, transformProps, uniqueBy } from "./propsUtils";
 import { getSelectedComponentType, isAllowDrag } from "./componentTypeUtil";
 import motifyLifeCycle from "./motifyLifecycle";
+import { connect } from "react-redux";
 // 得到选择组件的类型
 import componentsDefs from "./indexAttributePanelSettings";
 import EventProxy from "./eventProxy";
-import R from "ramda";
+import { selectName } from "../redux/selectors";
 window.batchSelectedComponent = [];
-console.log("EventProxy===", EventProxy);
 const style = {
   display: "flex",
   alignItems: "center",
@@ -34,8 +36,8 @@ function getUnitPix(pixel) {
  * 这里要写一个高阶组件来处理react-rnd包裹
  */
 
-export default function HOC(WrappedComponent) {
-  return class RndWrappedComponent extends React.Component {
+ export default function HOC(WrappedComponent) {
+  const RndWrappedComponentClass  = class RndWrappedComponent extends React.Component {
     constructor(props) {
       super(props);
       this.mousemove = this.mousemove.bind(this);
@@ -279,6 +281,9 @@ export default function HOC(WrappedComponent) {
             // 单选
             const { onMouseDown, elementKey } = this.props;
             console.log("elementKey===", elementKey);
+            this.props.dispatch({
+              type:'ValueChange'
+            });
             // onMouseDown(elementKey);
             window.batchSelectedComponent = [];
             const COMPONENT_TYPE = getSelectedComponentType(this.props.type);
@@ -396,7 +401,7 @@ export default function HOC(WrappedComponent) {
           key: "dataSource",
           events: this.props.events,
           propsUtils: {
-            settingPropsDirectly: this.props.propsUtils.settingPropsDirectly
+            settingPropsDirectly: this.props.propsUtils&&this.props.propsUtils.settingPropsDirectly
           }
         }
       );
@@ -405,6 +410,7 @@ export default function HOC(WrappedComponent) {
         ...this.props
       };
       delete localProps.onMouseDown;
+      console.log('获取到组件属性为====',localProps);
       return (
         <Rnd
           ref={cpt => {
@@ -468,4 +474,17 @@ export default function HOC(WrappedComponent) {
       );
     }
   };
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  };
 }
+const mapStateToProps = createStructuredSelector({
+  fuckName: selectName()
+});
+
+  return connect(mapStateToProps,mapDispatchToProps)(RndWrappedComponentClass);
+}
+
+

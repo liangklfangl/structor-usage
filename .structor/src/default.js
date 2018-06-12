@@ -7,7 +7,7 @@ import { Router, browserHistory } from "react-router";
 import PageForDesk from "./PageForDesk.js";
 import { getRealPathName } from "./commons/constants.js";
 import configureStore from "../app/store.js";
-
+// store注册是.structor/app/store.js
 /**
  * 页面包装器
  */
@@ -16,10 +16,8 @@ class PageContainer extends React.Component {
     return <div>{this.props.children}</div>;
   }
 }
-
 let store;
 let routeConfig = [];
-
 /**
  * 每次重新渲染的函数、
  */
@@ -33,7 +31,7 @@ const render = () => {
 };
 
 /**
- * 创建桌面工作区的函数
+ * 创建桌面工作区的函数并监听路由配置
  */
 window.__createPageDesk = function() {
   store = configureStore();

@@ -50,3 +50,9 @@ modules/ContextMenu.js
 
 ### 问题5:开发提示
 (1)如果一份老数据不能拖动的情况下，可以考虑吧老数据删除掉，重新拖动元素。这就是遇到不能resize的情况下的解决方案
+
+
+
+
+### 参考文献
+[Three Rules For Structuring (Redux) Applications](https://jaysoo.ca/2016/02/28/organizing-redux-application/)
