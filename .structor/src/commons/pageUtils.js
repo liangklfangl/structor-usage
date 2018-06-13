@@ -46,13 +46,16 @@ export function createElement(
   settingArrayObjectProps
 ) {
   let modelNode = node.modelNode;
-  // 找到每一个的modelNode
   let type = findComponent(components, modelNode.type, modelNode.namespace);
-  // 创建元素类型
+  // 创建元素类型，比如div或者Input
   let props = extend({}, modelNode.props, { key: node.key });
+  // {type: "div", props: {style:{border:'1px solid red'}}, children: Array(1)}
   if (node.props) {
-    // 为每一个props添加一个新的组件类型
+    // 节点本身有props，那么会作为一个新的创建react元素作为props属性，比如那些react节点的元素可以这么做
+    // reactNode类型
+    // https://babeljs.io/en/repl.html#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=G4QwTgBADmD2BmBLANgUwgXggHgCaOAgGcAXATzQwG8qAjWMXVMALgHIBGKAD2NmUS4IYVLjYBfcQD4AUBHkLsACwBMUwJvxgGcTA9GYAJFdgD0q2UfzApAbhlA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-0&prettier=false&targets=&version=6.26.0&envVersion=
     forOwn(node.props, (prop, propName) => {
+      // style等元素也是要动态创建的，这是react的形式
       props[propName] = createElement(
         prop,
         initialState,
@@ -87,6 +90,7 @@ export function createElement(
         type: modelNode.type,
         initialState: initialState,
         onMouseDown:mouseDownHandler,
+        // 鼠标点击的时候触发
         wrappedProps: {
           ...props,
           bindPropSelectChange,
@@ -101,6 +105,7 @@ export function createElement(
         },
         // 这是被包裹的元素添加的属性
         wrappedComponent: type
+        // 包裹的组件
       };
       console.log("wrapperProps====", wrapperProps);
       // ComponentWrapper为要新构建的属性
@@ -182,8 +187,10 @@ export function createElements(
   initialState.elements = {};
   let elements = [];
   if (model && model.children && model.children.length > 0) {
+    // 遍历children列表进行创建元素
     model.children.forEach(child => {
       elements.push(
+        // 每一个创建的子元素都会接受到的属性和方法列表
         createElement(
           child,
           initialState,
@@ -197,6 +204,5 @@ export function createElements(
       );
     });
   }
-
   return elements;
 }

@@ -52,11 +52,11 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "8",
-            "x": 4,
+            "key": "7",
+            "x": 6,
             "width": 1285,
             "height": 92,
-            "y": 124,
+            "y": 168,
             "style": {
               "width": "1285px",
               "height": "92px"
@@ -95,7 +95,18 @@
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "props": {
+            "key": "10",
+            "x": 10,
+            "width": 100,
+            "height": 50,
+            "y": 10,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
         },
         {
           "type": "Input",
@@ -103,7 +114,7 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "12",
+            "key": "11",
             "x": 324,
             "width": 100,
             "height": 50,
@@ -141,10 +152,10 @@
           "namespace": "antd",
           "props": {
             "key": "16",
-            "x": 574,
+            "x": 706,
             "width": 100,
             "height": 50,
-            "y": 171,
+            "y": 191,
             "style": {
               "width": "100px",
               "height": "50px"
@@ -186,10 +197,10 @@
           "namespace": "antd",
           "props": {
             "key": "21",
-            "x": 289,
+            "x": 552,
             "width": 100,
             "height": 50,
-            "y": 13,
+            "y": 6,
             "style": {
               "width": "100px",
               "height": "50px"
@@ -202,11 +213,11 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "11",
+            "key": "22",
             "x": 1169,
             "width": 94,
             "height": 34,
-            "y": 10,
+            "y": 9,
             "style": {
               "width": "94px",
               "height": "34px"
@@ -227,12 +238,12 @@
           ],
           "namespace": "antd",
           "props": {
-            "key": "10",
-            "x": 944,
+            "key": "23",
+            "x": 970,
             "width": 92,
             "type": "primary",
             "height": 29,
-            "y": 12,
+            "y": 18,
             "events": [
               "refresh-table-data"
             ],
@@ -427,8 +438,69 @@
       ]
     },
     {
-      "pageName": "Page42",
+      "pageName": "Page53",
       "pagePath": "/new-page1",
+      "children": [
+        {
+          "type": "Table",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "62",
+            "x": 5,
+            "width": 1086,
+            "height": 114,
+            "y": 144,
+            "style": {
+              "width": "1086px",
+              "height": "114px"
+            },
+            "columns": [
+              {
+                "className": "container",
+                "colSpan": 2,
+                "dataIndex": 3,
+                "title": "姓名",
+                "key": 5
+              },
+              {
+                "className": null,
+                "colSpan": null,
+                "dataIndex": null,
+                "title": "age",
+                "key": null
+              }
+            ]
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "60",
+            "x": 143,
+            "width": 100,
+            "height": 50,
+            "y": 17,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pageName": "Page63",
+      "pagePath": "/new-page2",
+      "children": []
+    },
+    {
+      "pageName": "Page72",
+      "pagePath": "/new-page3",
       "children": [
         {
           "type": "div",
@@ -462,6 +534,35 @@
               ]
             }
           ]
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Table",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "51",
+            "x": 249,
+            "width": 780,
+            "height": 50,
+            "y": 152,
+            "style": {
+              "width": "780px",
+              "height": "50px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
         }
       ]
     }

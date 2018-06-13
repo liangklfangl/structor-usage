@@ -81,7 +81,7 @@ class ComponentWrapper extends Component {
   /**
    * 
    * @param {*} nextProps
-   * 组件接受新的props 
+   * 父级元素:组件接受新的props 
    */
   componentWillReceiveProps(nextProps) {
     this.subscribeToInitialState();
@@ -90,7 +90,7 @@ class ComponentWrapper extends Component {
   /**
    * 
    * @param {*} e 
-   * 鼠标点击事件,回调mousedown
+   * 父级元素:鼠标点击事件,回调mousedown
    */
   handleMouseDown(e) {
     if (!e.shiftKey) {
@@ -111,7 +111,7 @@ class ComponentWrapper extends Component {
   /**
    * 
    * @param {*} e
-   * 鼠标移动 
+   * 父级元素:鼠标移动 
    */
   handleMouseOver(e) {
     console.log('handleMouseOver ');
@@ -129,9 +129,10 @@ class ComponentWrapper extends Component {
   /**
    * 
    * @param {*} e
-   * 鼠标移出 
+   * 父级元素:鼠标移出 
    */
   handleMouseOut(e) {
+    console.log('handleMouseOut ');
     const { initialState } = this.props;
     if (initialState && initialState.onMouseOut) {
       this.initDOMNode();
@@ -145,7 +146,7 @@ class ComponentWrapper extends Component {
   /**
    * 
    * @param {*} e
-   * 单击/双击/鼠标放开回调 
+   * 父级元素:单击/双击/鼠标放开回调 
    */
   handleNoop(e) {
     if (!e.shiftKey) {
@@ -153,12 +154,13 @@ class ComponentWrapper extends Component {
       e.preventDefault();
     }
   }
+
+  /**
+   * 父级元素:构建的ComponentWrapper就是mousedown,initialState等多种配置
+   */
   render() {
     const { wrappedComponent, wrappedProps, children } = this.props;
-    console.log('wrappedProps====',wrappedProps);
-    return React.createElement(wrappedComponent, {
-      ...wrappedProps,
-    }, children);
+    return React.createElement(wrappedComponent, wrappedProps, children);
   }
 }
 
