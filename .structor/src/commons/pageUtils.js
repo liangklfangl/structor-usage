@@ -86,10 +86,10 @@ export function createElement(
         elementKey: node.key,
         type: modelNode.type,
         initialState: initialState,
+        onMouseDown:mouseDownHandler,
         wrappedProps: {
           ...props,
           bindPropSelectChange,
-          onMouseDown:mouseDownHandler,
           disabled: false,
           key: node.key,
           dragSizeChangeCallback,

@@ -1,320 +1,469 @@
 {
-    "pages": [{
-            "pageName": "Page4",
-            "pagePath": "/drag",
-            "children": [{
-                    "type": "div",
-                    "props": {
-                        "style": {
-                            "display": "flex",
-                            "justifyContent": "center",
-                            "alignItems": "center",
-                            "padding": "1em"
-                        }
-                    },
-                    "children": [{
-                        "type": "div",
-                        "children": [{
-                            "type": "h3",
-                            "props": {
-                                "style": {
-                                    "padding": "1em",
-                                    "textAlign": "center"
-                                }
-                            },
-                            "children": []
-                        }]
-                    }]
-                },
+  "pages": [
+    {
+      "pageName": "Page4",
+      "pagePath": "/drag",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
                 {
-                    "type": "InputGen",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "InputGen",
-                    "props": {}
-                },
-                {
-                    "type": "ModalReducer",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "modalReducer",
-                    "props": {}
-                },
-                {
-                    "type": "Table",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "8",
-                        "x": 4,
-                        "width": 1285,
-                        "height": 92,
-                        "y": 124,
-                        "style": {
-                            "width": "1285px",
-                            "height": "92px"
-                        },
-                        "columns": [{
-                                "className": null,
-                                "colSpan": null,
-                                "dataIndex": "age",
-                                "title": "年龄1",
-                                "key": ""
-                            },
-                            {
-                                "className": "container",
-                                "colSpan": 2,
-                                "dataIndex": "name",
-                                "title": "姓名",
-                                "key": 5
-                            }
-                        ]
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
                     }
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd"
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "12",
-                        "x": 324,
-                        "width": 100,
-                        "height": 50,
-                        "y": 75,
-                        "style": {
-                            "width": "100px",
-                            "height": "50px"
-                        }
-                    }
-                },
-                {
-                    "type": "DatePicker",
-                    "variant": "default",
-                    "children": []
-                },
-                {
-                    "type": "DatePicker",
-                    "variant": "default",
-                    "children": []
-                },
-                {
-                    "type": "DatePicker",
-                    "variant": "default",
-                    "children": []
-                },
-                {
-                    "type": "DatePicker",
-                    "variant": "default",
-                    "children": []
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "17",
-                        "x": 361,
-                        "width": 100,
-                        "height": 50,
-                        "y": 223,
-                        "style": {
-                            "width": "100px",
-                            "height": "50px"
-                        }
-                    }
-                },
-                {
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Counter",
-                    "props": {},
-                    "children": [],
-                    "namespace": "antd",
-                    "variant": "default"
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "23",
-                        "x": 289,
-                        "width": 100,
-                        "height": 50,
-                        "y": 13,
-                        "style": {
-                            "width": "100px",
-                            "height": "50px"
-                        }
-                    }
-                },
-                {
-                    "type": "Button",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "11",
-                        "x": 1169,
-                        "width": 94,
-                        "height": 34,
-                        "y": 10,
-                        "style": {
-                            "width": "94px",
-                            "height": "34px"
-                        }
-                    }
-                },
-                {
-                    "type": "Button",
-                    "variant": "default",
-                    "children": [{
-                        "type": "span",
-                        "variant": "default",
-                        "props": {},
-                        "children": [],
-                        "text": "搜索"
-                    }],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "10",
-                        "x": 944,
-                        "width": 92,
-                        "type": "primary",
-                        "height": 29,
-                        "y": 12,
-                        "events": [
-                            "refresh-table-data"
-                        ],
-                        "style": {
-                            "width": "92px",
-                            "height": "29px"
-                        },
-                        "dataSource": [{
-                                "key": "1",
-                                "name": "胡彦斌a",
-                                "age": 32,
-                                "address": "西湖区湖底公园1号"
-                            },
-                            {
-                                "key": "2",
-                                "name": "胡彦祖",
-                                "age": 42,
-                                "address": "西湖区湖底公园1号"
-                            }
-                        ]
-                    }
+                  },
+                  "children": []
                 }
-            ]
+              ]
+            }
+          ]
         },
         {
-            "pageName": "Page17",
-            "pagePath": "/new-page",
-            "children": [{
-                    "type": "div",
-                    "props": {
-                        "style": {
-                            "display": "flex",
-                            "justifyContent": "center",
-                            "alignItems": "center",
-                            "padding": "1em"
-                        }
-                    },
-                    "children": [{
-                        "type": "div",
-                        "children": [{
-                            "type": "h3",
-                            "props": {
-                                "style": {
-                                    "padding": "1em",
-                                    "textAlign": "center"
-                                }
-                            },
-                            "children": [{
-                                "type": "span",
-                                "text": "Click on me and start creating a new cool component."
-                            }]
-                        }]
-                    }]
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "75",
-                        "x": 385,
-                        "width": 100,
-                        "height": 50,
-                        "y": 160,
-                        "style": {
-                            "width": "100px",
-                            "height": "50px"
-                        },
-                        "addonBefore": "http://"
-                    }
-                },
-                {
-                    "type": "Input",
-                    "variant": "default",
-                    "children": [],
-                    "namespace": "antd",
-                    "props": {
-                        "key": "76",
-                        "x": 171,
-                        "width": 100,
-                        "height": 50,
-                        "y": 145,
-                        "style": {
-                            "width": "100px",
-                            "height": "50px"
-                        },
-                        "defaultValue": "请输入值"
-                    }
-                }
+          "type": "InputGen",
+          "variant": "default",
+          "children": [],
+          "namespace": "InputGen",
+          "props": {}
+        },
+        {
+          "type": "ModalReducer",
+          "variant": "default",
+          "children": [],
+          "namespace": "modalReducer",
+          "props": {}
+        },
+        {
+          "type": "Table",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "8",
+            "x": 4,
+            "width": 1285,
+            "height": 92,
+            "y": 124,
+            "style": {
+              "width": "1285px",
+              "height": "92px"
+            },
+            "columns": [
+              {
+                "className": null,
+                "colSpan": null,
+                "dataIndex": "age",
+                "title": "年龄1",
+                "key": ""
+              },
+              {
+                "className": "container",
+                "colSpan": 2,
+                "dataIndex": "name",
+                "title": "姓名",
+                "key": 5
+              }
             ]
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "12",
+            "x": 324,
+            "width": 100,
+            "height": 50,
+            "y": 75,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
+        },
+        {
+          "type": "DatePicker",
+          "variant": "default",
+          "children": []
+        },
+        {
+          "type": "DatePicker",
+          "variant": "default",
+          "children": []
+        },
+        {
+          "type": "DatePicker",
+          "variant": "default",
+          "children": []
+        },
+        {
+          "type": "DatePicker",
+          "variant": "default",
+          "children": []
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "16",
+            "x": 574,
+            "width": 100,
+            "height": 50,
+            "y": 171,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
+        },
+        {
+          "type": "Counter",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Counter",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Counter",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Counter",
+          "props": {},
+          "children": [],
+          "namespace": "antd",
+          "variant": "default"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "21",
+            "x": 289,
+            "width": 100,
+            "height": 50,
+            "y": 13,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
+        },
+        {
+          "type": "Button",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "11",
+            "x": 1169,
+            "width": 94,
+            "height": 34,
+            "y": 10,
+            "style": {
+              "width": "94px",
+              "height": "34px"
+            }
+          }
+        },
+        {
+          "type": "Button",
+          "variant": "default",
+          "children": [
+            {
+              "type": "span",
+              "variant": "default",
+              "props": {},
+              "children": [],
+              "text": "搜索"
+            }
+          ],
+          "namespace": "antd",
+          "props": {
+            "key": "10",
+            "x": 944,
+            "width": 92,
+            "type": "primary",
+            "height": 29,
+            "y": 12,
+            "events": [
+              "refresh-table-data"
+            ],
+            "style": {
+              "width": "92px",
+              "height": "29px"
+            },
+            "dataSource": [
+              {
+                "key": "1",
+                "name": "胡彦斌a",
+                "age": 32,
+                "address": "西湖区湖底公园1号"
+              },
+              {
+                "key": "2",
+                "name": "胡彦祖",
+                "age": 42,
+                "address": "西湖区湖底公园1号"
+              }
+            ]
+          }
         }
-    ]
+      ]
+    },
+    {
+      "pageName": "Page17",
+      "pagePath": "/new-page",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
+                {
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "span",
+                      "text": "Click on me and start creating a new cool component."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "30",
+            "x": 431,
+            "width": 150,
+            "height": 32,
+            "y": 166,
+            "style": {
+              "width": "150px",
+              "height": "32px"
+            },
+            "addonBefore": "http://"
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "31",
+            "x": 355,
+            "width": 88,
+            "height": 30,
+            "y": 46,
+            "style": {
+              "width": "88px",
+              "height": "30px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd"
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "35",
+            "x": 47,
+            "width": 100,
+            "height": 50,
+            "y": 147,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "32",
+            "x": 715,
+            "width": 100,
+            "height": 50,
+            "y": 132,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
+        },
+        {
+          "type": "Input",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "34",
+            "x": 226,
+            "width": 100,
+            "height": 50,
+            "y": 214,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            },
+            "defaultValue": "请输入值"
+          }
+        }
+      ]
+    },
+    {
+      "pageName": "Page42",
+      "pagePath": "/new-page1",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
+                {
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "span",
+                      "text": "Click on me and start creating a new cool component."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
