@@ -87,7 +87,9 @@ export function createElement(
         type: modelNode.type,
         initialState: initialState,
         wrappedProps: {
+          ...props,
           bindPropSelectChange,
+          onMouseDown:mouseDownHandler,
           disabled: false,
           key: node.key,
           dragSizeChangeCallback,
@@ -96,7 +98,6 @@ export function createElement(
           type: modelNode.type,
           bindEnumContextMenuSelect,
           initialState: initialState,
-          ...props
         },
         // 这是被包裹的元素添加的属性
         wrappedComponent: type

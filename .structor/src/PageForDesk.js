@@ -180,15 +180,10 @@ class PageForDesk extends Component {
       isEqual(nextProps.location.query, this.props.location.query)
     ) {
       const pathname = getPagePathName(nextProps.location.pathname);
-      // "/structor-deskpage/new-menu"
       const nextPagePath = this.getPagePath(pathname);
-      // 获取pathname
-      // page.bindGetPagePath(pathname => graphApi.getPagePath(pathname));
-      // 需要走接口从structor的服务端获取
       this.updatePageModel({
         pathname: nextPagePath
       });
-
       if (this.onPathnameChanged) {
         this.onPathnameChanged(nextPagePath);
       }

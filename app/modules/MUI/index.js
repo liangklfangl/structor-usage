@@ -1,6 +1,6 @@
 import ThemeProvider from "./components/ThemeProvider";
-import LayoutContainer from "./components/LayoutContainer";
-import LayoutItem from "./components/LayoutItem";
+// import LayoutContainer from "./components/LayoutContainer";
+// import LayoutItem from "./components/LayoutItem";
 import Avatar from "material-ui/Avatar";
 // import Button from 'material-ui/Button';
 // import { Button, Select, Pagination } from "antd";
@@ -16,8 +16,8 @@ import List, {
 require("./css/styles.css");
 export {
   ThemeProvider,
-  LayoutContainer,
-  LayoutItem,
+  // LayoutContainer,
+  // LayoutItem,
   // Pagination,
   Avatar,
   // Button,
