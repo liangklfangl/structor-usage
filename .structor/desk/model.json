@@ -53,10 +53,10 @@
           "namespace": "antd",
           "props": {
             "key": "7",
-            "x": 6,
+            "x": 13,
             "width": 1285,
             "height": 92,
-            "y": 168,
+            "y": 190,
             "style": {
               "width": "1285px",
               "height": "92px"
@@ -83,13 +83,35 @@
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "props": {
+            "key": "8",
+            "x": 600,
+            "width": 156,
+            "height": 50,
+            "y": 111,
+            "style": {
+              "width": "156px",
+              "height": "50px"
+            }
+          }
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "props": {
+            "key": "9",
+            "x": 120,
+            "width": 100,
+            "height": 50,
+            "y": 52,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
         },
         {
           "type": "Input",
@@ -98,10 +120,10 @@
           "namespace": "antd",
           "props": {
             "key": "10",
-            "x": 10,
+            "x": 335,
             "width": 100,
             "height": 50,
-            "y": 10,
+            "y": 85,
             "style": {
               "width": "100px",
               "height": "50px"
@@ -115,35 +137,15 @@
           "namespace": "antd",
           "props": {
             "key": "11",
-            "x": 324,
+            "x": 442,
             "width": 100,
             "height": 50,
-            "y": 75,
+            "y": 14,
             "style": {
               "width": "100px",
               "height": "50px"
             }
           }
-        },
-        {
-          "type": "DatePicker",
-          "variant": "default",
-          "children": []
-        },
-        {
-          "type": "DatePicker",
-          "variant": "default",
-          "children": []
-        },
-        {
-          "type": "DatePicker",
-          "variant": "default",
-          "children": []
-        },
-        {
-          "type": "DatePicker",
-          "variant": "default",
-          "children": []
         },
         {
           "type": "Input",
@@ -152,12 +154,12 @@
           "namespace": "antd",
           "props": {
             "key": "16",
-            "x": 706,
-            "width": 100,
+            "x": 222,
+            "width": 835,
             "height": 50,
-            "y": 191,
+            "y": 332,
             "style": {
-              "width": "100px",
+              "width": "835px",
               "height": "50px"
             }
           }
@@ -196,11 +198,11 @@
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "21",
-            "x": 552,
+            "key": "17",
+            "x": 874,
             "width": 100,
             "height": 50,
-            "y": 6,
+            "y": 27,
             "style": {
               "width": "100px",
               "height": "50px"
@@ -214,7 +216,7 @@
           "namespace": "antd",
           "props": {
             "key": "22",
-            "x": 1169,
+            "x": 1041,
             "width": 94,
             "height": 34,
             "y": 9,
@@ -239,11 +241,11 @@
           "namespace": "antd",
           "props": {
             "key": "23",
-            "x": 970,
+            "x": 991,
             "width": 92,
             "type": "primary",
             "height": 29,
-            "y": 18,
+            "y": 88,
             "events": [
               "refresh-table-data"
             ],
@@ -563,6 +565,123 @@
           "variant": "default",
           "children": [],
           "namespace": "antd"
+        }
+      ]
+    },
+    {
+      "pageName": "Page54",
+      "pagePath": "/new-page4",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
+                {
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "span",
+                      "text": "Click on me and start creating a new cool component."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Select",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "63",
+            "width": 95,
+            "height": 32,
+            "x": 339,
+            "y": 192,
+            "style": {
+              "width": "95px",
+              "height": "32px"
+            }
+          }
+        },
+        {
+          "type": "DatePicker",
+          "variant": "default",
+          "children": []
+        }
+      ]
+    },
+    {
+      "pageName": "Page61",
+      "pagePath": "/new-page5",
+      "children": [
+        {
+          "type": "div",
+          "props": {
+            "style": {
+              "display": "flex",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "padding": "1em"
+            }
+          },
+          "children": [
+            {
+              "type": "div",
+              "children": [
+                {
+                  "type": "h3",
+                  "props": {
+                    "style": {
+                      "padding": "1em",
+                      "textAlign": "center"
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "span",
+                      "text": "Click on me and start creating a new cool component."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Select",
+          "variant": "default",
+          "children": [],
+          "namespace": "antd",
+          "props": {
+            "key": "68",
+            "x": 10,
+            "width": 100,
+            "height": 50,
+            "y": 10,
+            "style": {
+              "width": "100px",
+              "height": "50px"
+            }
+          }
         }
       ]
     }

@@ -159,92 +159,62 @@ function processObjects (objects) {
     return result;
 }
 %>
-/**
- *
- * <%= componentName %> Redux Container
- *
- */
-<% if(metadata.componentType === 'ES6 Class (Pure)') { %>
-import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
-<% } else if(metadata.componentType === 'ES6 Class') { %>
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-<% } %>
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { selectName } from './selectors';
-import { sampleAction } from './actions';
-<% if(metadata.hasChildrenIncluded) { %>
-<%= getComponentClassMemberImports(imports) %>
-<%= getComponentClassDefaultImports(imports) %>
-<%= getComponentClassNamespaceImports(imports) %>
-<% } %>
-
-<%= processObjects(foundObjects)  %>
-
-<% if(metadata.componentType === 'ES6 Class (Pure)') { %>
-class <%= componentName %> extends PureComponent { // eslint-disable-line react/prefer-stateless-function
-<% } else if(metadata.componentType === 'ES6 Class') { %>
-class <%= componentName %> extends Component { // eslint-disable-line react/prefer-stateless-function
-<% } %>
-    constructor(props) {
-        super(props);
-        this.handleEvent = this.handleEvent.bind(this);
-        this.state = {
-            exampleValue: '',
-        };
-    }
-
-    handleEvent(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const {dispatch, name} = this.props; // eslint-disable-line
-        dispatch(sampleAction(name));
-    }
-
-    render(){
-        const { exampleValue } = this.state; // eslint-disable-line
-        <% if(metadata.isPropertiesExample) {%>const { exampleProp } = this.props; // eslint-disable-line<%}%>
-        return (
-            <<%= (model.type === componentName ? 'div' : model.type) + (_.isEmpty(model.props) ? '' : ' ' + processProps(model.props)) %>>
-                <% if(metadata.hasChildrenIncluded) { %>
-                    <% if(model.children && model.children.length > 0) {
-                        _.forEach(model.children, function(child) { %>
-                            <%= processChild(child) %>
-                        <% });
-                    } %>
-                <% } else { %>
-                    <% if(model.children && model.children.length > 0) { %>
-                        {this.props.children}
-                    <% } %>
+    /** * *
+    <%= componentName %> Redux Container * */
+        <% if(metadata.componentType === 'ES6 Class (Pure)') { %>
+            import React, {PureComponent} from 'react'; import PropTypes from 'prop-types';
+            <% } else if(metadata.componentType === 'ES6 Class') { %>
+                import React, {Component} from 'react'; import PropTypes from 'prop-types';
                 <% } %>
-            </<%= (model.type === componentName ? 'div' : model.type) %>>
-        ); // eslint-disable-line
-    }
-}
+                    import { connect } from 'react-redux'; import { createStructuredSelector } from 'reselect'; import { selectName } from './selectors'; import { sampleAction } from './actions';
+                    <% if(metadata.hasChildrenIncluded) { %>
+                        <%= getComponentClassMemberImports(imports) %>
+                            <%= getComponentClassDefaultImports(imports) %>
+                                <%= getComponentClassNamespaceImports(imports) %>
+                                    <% } %>
 
-<%= componentName %>.propTypes = {
-    dispatch: PropTypes.func,
-    name: PropTypes.string,
-    <% if(metadata.isPropertiesExample) {%>exampleProp: PropTypes.string,<% } %>
-    <% if(!metadata.hasChildrenIncluded) { %>children: PropTypes.node,<% } %>
-};
-<% if(metadata.isPropertiesExample || !metadata.hasChildrenIncluded) {%>
-<%= componentName %>.defaultProps = {
-    <% if(metadata.isPropertiesExample) {%>exampleProp: '',<% } %>
-    <% if(!metadata.hasChildrenIncluded) { %>children: null,<% } %>
-};
-<%}%>
+                                        <%= processObjects(foundObjects)  %>
 
-const mapStateToProps = createStructuredSelector({
-    name: selectName(),
-});
+                                            <% if(metadata.componentType === 'ES6 Class (Pure)') { %>
+                                                class
+                                                <%= componentName %> extends PureComponent { // eslint-disable-line react/prefer-stateless-function
+                                                    <% } else if(metadata.componentType === 'ES6 Class') { %>
+                                                        class
+                                                        <%= componentName %> extends Component { // eslint-disable-line react/prefer-stateless-function
+                                                            <% } %>
+                                                                constructor(props) { super(props); this.handleEvent = this.handleEvent.bind(this); this.state = { exampleValue: '', }; } handleEvent(e) { e.preventDefault(); e.stopPropagation(); const {dispatch, name} = this.props; // eslint-disable-line dispatch(sampleAction(name));
+                                                                } render(){ const { exampleValue } = this.state; // eslint-disable-line
+                                                                <% if(metadata.isPropertiesExample) {%>const { exampleProp } = this.props; // eslint-disable-line
+                                                                    <%}%>
+                                                                        return (
+                                                                        <<%=( model.type===c omponentName ? 'div' : model.type) + (_.isEmpty(model.props) ? '' : ' ' + processProps(model.props)) %>>
+                                                                            <% if(metadata.hasChildrenIncluded) { %>
+                                                                                <% if(model.children && model.children.length > 0) {
+                        _.forEach(model.children, function(child) { %>
+                                                                                    <%= processChild(child) %>
+                                                                                        <% });
+                    } %>
+                                                                                            <% } else { %>
+                                                                                                <% if(model.children && model.children.length > 0) { %>
+                                                                                                    {this.props.children}
+                                                                                                    <% } %>
+                                                                                                        <% } %>
+                                                                        </<%=( model.type===c omponentName ? 'div' : model.type) %>> ); // eslint-disable-line } }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        dispatch,
-    };
-}
+                                                                        <%= componentName %>.propTypes = { dispatch: PropTypes.func, name: PropTypes.string,
+                                                                            <% if(metadata.isPropertiesExample) {%>exampleProp: PropTypes.string,
+                                                                                <% } %>
+                                                                                    <% if(!metadata.hasChildrenIncluded) { %>children: PropTypes.node,
+                                                                                        <% } %>
+                                                                                            };
+                                                                                            <% if(metadata.isPropertiesExample || !metadata.hasChildrenIncluded) {%>
+                                                                                                <%= componentName %>.defaultProps = {
+                                                                                                    <% if(metadata.isPropertiesExample) {%>exampleProp: '',
+                                                                                                        <% } %>
+                                                                                                            <% if(!metadata.hasChildrenIncluded) { %>children: null,
+                                                                                                                <% } %>
+                                                                                                                    };
+                                                                                                                    <%}%>
 
-export default connect(mapStateToProps, mapDispatchToProps)(<%= componentName %>);
+                                                                                                                        const mapStateToProps = createStructuredSelector({ name: selectName(), }); function mapDispatchToProps(dispatch) { return { dispatch, }; } export default connect(mapStateToProps, mapDispatchToProps)(
+                                                                                                                        <%= componentName %>);

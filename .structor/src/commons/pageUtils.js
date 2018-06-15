@@ -10,15 +10,24 @@ import {
 import React, { Component } from "react";
 import ComponentWrapper from "./ComponentWrapper.js";
 import * as components from "../../app/components.js";
+// 找到.structor/app/components.js目录导出的组件
 
+/**
+ * 
+ * @param {*} index 
+ * @param {*} componentName 
+ * @param {*} namespace 
+ */
 export function findComponent(index, componentName, namespace) {
   let result = undefined;
   if (index) {
+    // 如果是namespace也存在，那么找到namespace下的componentName
     if (componentName && namespace) {
       if (index[namespace]) {
         result = index[namespace][componentName];
       }
     } else if (componentName) {
+      // 如果没有namespace直接显示即可
       result = index[componentName];
     }
   }

@@ -17,8 +17,9 @@ import { connect } from "react-redux";
 // 得到选择组件的类型
 import componentsDefs from "./indexAttributePanelSettings";
 import EventProxy from "./eventProxy";
-import { selectName } from "../redux/selectors";
 window.batchSelectedComponent = [];
+const pages = window.__pages;
+const currentPath = "/" + window.location.pathname.split("/").slice(2);
 const style = {
   display: "flex",
   alignItems: "center",
@@ -36,8 +37,8 @@ function getUnitPix(pixel) {
  * 这里要写一个高阶组件来处理react-rnd包裹
  */
 
- export default function HOC(WrappedComponent) {
-  const RndWrappedComponentClass  = class RndWrappedComponent extends React.Component {
+export default function HOC(WrappedComponent) {
+  const RndWrappedComponentClass = class RndWrappedComponent extends React.Component {
     constructor(props) {
       super(props);
       this.mousemove = this.mousemove.bind(this);
@@ -281,10 +282,17 @@ function getUnitPix(pixel) {
             // 单选
             const { onMouseDown, elementKey } = this.props;
             console.log("elementKey===", elementKey);
+            const page = window.__pages.filter(el => {
+              return el.pagePath == currentPath;
+            })[0];
+            const suffix = parseInt(Math.random() * 10);
             this.props.dispatch({
-              type:'ValueChange'
+              type: page.pageName + ".",
+              payload: {
+                ["name" + suffix]: "覃亮" + suffix,
+                sex: "男"
+              }
             });
-            // onMouseDown(elementKey);
             window.batchSelectedComponent = [];
             const COMPONENT_TYPE = getSelectedComponentType(this.props.type);
             if (COMPONENT_TYPE == "behavior") {
@@ -357,6 +365,8 @@ function getUnitPix(pixel) {
         {};
       const WrapperProps = getProps(ComponentSupportedProps);
       // WrapperProps为默认属性,this.props为真实的数据
+
+      this.initEvent();
       this.setState({
         height,
         combinedProps: { ...WrapperProps, ...this.props },
@@ -364,11 +374,9 @@ function getUnitPix(pixel) {
         x,
         y
       });
-      this.initEvent();
     }
 
     /**
-     * 设置属性后不能立即生效,因为要接口发送到服务端才行:https://vkbansal.github.io/react-contextmenu/#/submenus
      * 根据type:本地获取可选配置，然后选中了发送到服务端
      */
     render() {
@@ -401,7 +409,9 @@ function getUnitPix(pixel) {
           key: "dataSource",
           events: this.props.events,
           propsUtils: {
-            settingPropsDirectly: this.props.propsUtils&&this.props.propsUtils.settingPropsDirectly
+            settingPropsDirectly:
+              this.props.propsUtils &&
+              this.props.propsUtils.settingPropsDirectly
           }
         }
       );
@@ -410,7 +420,7 @@ function getUnitPix(pixel) {
         ...this.props
       };
       delete localProps.onMouseDown;
-      console.log('获取到组件属性为====',localProps);
+      console.log("获取到组件属性为====", localProps, window.__pages);
       return (
         <Rnd
           ref={cpt => {
@@ -474,17 +484,14 @@ function getUnitPix(pixel) {
       );
     }
   };
+  function mapDispatchToProps(dispatch) {
+    return {
+      dispatch
+    };
+  }
+  const mapStateToProps = state => ({
+    value: "fuck"
+  });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch
-  };
+  return connect(mapStateToProps, mapDispatchToProps)(RndWrappedComponentClass);
 }
-const mapStateToProps = createStructuredSelector({
-  fuckName: selectName()
-});
-
-  return connect(mapStateToProps,mapDispatchToProps)(RndWrappedComponentClass);
-}
-
-

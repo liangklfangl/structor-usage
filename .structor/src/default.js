@@ -2,22 +2,33 @@ import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-// react-redux的Provider
 import { Router, browserHistory } from "react-router";
 import PageForDesk from "./PageForDesk.js";
 import { getRealPathName } from "./commons/constants.js";
-import configureStore from "../app/store.js";
-// store注册是.structor/app/store.js
-/**
- * 页面包装器
- */
-class PageContainer extends React.Component {
-  render() {
-    return <div>{this.props.children}</div>;
-  }
-}
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import createSagaMiddleware from "redux-saga";
+import sagas from "./redux/sagas";
+import ReducerCreationFactory from "./redux/ReducerFactory";
+// reducer的工厂函数
+const sagaMiddleware = createSagaMiddleware();
+const devtools = window.devToolsExtension || (() => noop => noop);
 let store;
 let routeConfig = [];
+
+/**
+ * 配置store
+ */
+function configureStore(initialState = {}, reducers = {}) {
+  const middlewares = [sagaMiddleware];
+  const enhancers = [applyMiddleware(...middlewares), devtools()];
+  const store = createStore(
+    combineReducers(reducers),
+    initialState,
+    compose(...enhancers)
+  );
+  sagas.map(sagaMiddleware.run);
+  return store;
+}
 /**
  * 每次重新渲染的函数、
  */
@@ -31,46 +42,64 @@ const render = () => {
 };
 
 /**
+ * 根据window.__pages产生新的reducers列表
+ */
+const generateReducers = () => {
+  return (window.__pages || []).reduce((prev, cur) => {
+    const key = cur["pageName"];
+    prev[key] = ReducerCreationFactory(key);
+    return prev;
+  }, {});
+};
+/**
  * 创建桌面工作区的函数并监听路由配置
  */
 window.__createPageDesk = function() {
-  store = configureStore();
+  store = configureStore({}, generateReducers());
+  // 创建自己的store
   window.__switchToPath = function(pagePath) {
     browserHistory.push(getRealPathName(pagePath));
   };
   let childRoutes = [];
   if (window.__pages && window.__pages.length > 0) {
+    // 每一个路由都会加载PageForDesk为当前路由的实例组件
     childRoutes = window.__pages.map((page, idex) => {
       return { path: page.pagePath, component: PageForDesk };
     });
-    // 子级路由有一个*的路由
     childRoutes.push({ path: "*", component: PageForDesk });
   } else {
     console.warn("Please check project model, pages were not found.");
   }
-
   routeConfig = [
     {
       path: "/",
       component: PageContainer,
-      //   默认的container
       indexRoute: { component: PageForDesk },
-      //   默认的子级路由为PageForDesk
       childRoutes: childRoutes
-      //   子级路由数组
     }
   ];
   render();
   window.pageReadyState = "initialized";
 };
 
+/**
+ * 页面包装器,必须加载
+ */
+class PageContainer extends React.Component {
+  render() {
+    return <div>{this.props.children}</div>;
+  }
+}
+
+/**
+ * 热加载
+ */
 if (module.hot) {
-  // modules.hot.accept does not accept dynamic dependencies,
-  // have to be constants at compile-time
-  //   监听PageForDesk.js变化并重新render
   module.hot.accept(["./PageForDesk.js"], () => {
     render();
   });
 }
-
+/**
+ * 页面状态
+ */
 window.pageReadyState = "ready";

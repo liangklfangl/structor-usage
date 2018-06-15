@@ -332,7 +332,6 @@ class PageForDesk extends Component {
     return (
       <div
         id="pageContainer"
-        style={{ padding: "0.1px", border: "5px solid pink" }}
       >
         {this.elementTree}
         {/* 组件树 */}
