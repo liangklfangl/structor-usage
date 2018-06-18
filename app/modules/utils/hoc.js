@@ -13,13 +13,11 @@ import { LEFT, RIGHT, DOWN, UP, STEP } from "./const";
 import { getProps, transformProps, uniqueBy } from "./propsUtils";
 import { getSelectedComponentType, isAllowDrag } from "./componentTypeUtil";
 import motifyLifeCycle from "./motifyLifecycle";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 // 得到选择组件的类型
 import componentsDefs from "./indexAttributePanelSettings";
-import EventProxy from "./eventProxy";
+// import EventProxy from "./eventProxy";
 window.batchSelectedComponent = [];
-const pages = window.__pages;
-const currentPath = "/" + window.location.pathname.split("/").slice(2);
 const style = {
   display: "flex",
   alignItems: "center",
@@ -43,23 +41,23 @@ export default function HOC(WrappedComponent) {
       super(props);
       this.mousemove = this.mousemove.bind(this);
       this.mouseup = this.mouseup.bind(this);
-    }
-    // 默认宽度
-    state = {
-      width: 50,
-      height: 100,
-      x: 10,
-      y: 10,
-      combinedProps: {}
-    };
-    dragging = null;
+      // 默认宽度
+      this.state = {
+        width: 50,
+        height: 100,
+        x: 10,
+        y: 10,
+        combinedProps: {}
+      };
+      this.dragging = null;
 
-    position = {
-      clientX: 0,
-      clientY: 0,
-      deltaX: 0,
-      deltaY: 0
-    };
+      this.position = {
+        clientX: 0,
+        clientY: 0,
+        deltaX: 0,
+        deltaY: 0
+      };
+    }
 
     /**
      * 
@@ -281,18 +279,7 @@ export default function HOC(WrappedComponent) {
           } else {
             // 单选
             const { onMouseDown, elementKey } = this.props;
-            console.log("elementKey===", elementKey);
-            const page = window.__pages.filter(el => {
-              return el.pagePath == currentPath;
-            })[0];
-            const suffix = parseInt(Math.random() * 10);
-            this.props.dispatch({
-              type: page.pageName + ".",
-              payload: {
-                ["name" + suffix]: "覃亮" + suffix,
-                sex: "男"
-              }
-            });
+
             window.batchSelectedComponent = [];
             const COMPONENT_TYPE = getSelectedComponentType(this.props.type);
             if (COMPONENT_TYPE == "behavior") {
@@ -401,13 +388,23 @@ export default function HOC(WrappedComponent) {
       // 组件类型
       const { style } = this.props;
       // 将组件本身进行一次包裹，修改其lifeCycle方法
+      // 自定义函数
+      const ComponentSupportedMethods =
+        (componentsDefs[ComponentType] &&
+          componentsDefs[ComponentType].addonMethods) ||
+        {};
+      console.log("ComponentSupportedMethods====", ComponentSupportedMethods);
+      // 添加方法到prototype上
       const MotifiedLifeCycleWrappedComponent = motifyLifeCycle(
         WrappedComponent,
         {
           type: COMPONENT_TYPE,
           componentKey: this.props.elementKey,
           key: "dataSource",
+          addonMethods: ComponentSupportedMethods,
           events: this.props.events,
+          dispatch: this.props.dispatch,
+          elementKey: this.props.elementKey,
           propsUtils: {
             settingPropsDirectly:
               this.props.propsUtils &&
@@ -420,7 +417,7 @@ export default function HOC(WrappedComponent) {
         ...this.props
       };
       delete localProps.onMouseDown;
-      console.log("获取到组件属性为====", localProps, window.__pages);
+      console.log("获取到组件属性为====", localProps);
       return (
         <Rnd
           ref={cpt => {
@@ -474,6 +471,12 @@ export default function HOC(WrappedComponent) {
           <ContextMenuTrigger id={uniqueRightPanelKey}>
             <MotifiedLifeCycleWrappedComponent
               className={wrappedElClss}
+              value={this.props.value}
+              onChange={value => {
+                MotifiedLifeCycleWrappedComponent.prototype.onChange(
+                  value.target ? value.target.value : value
+                );
+              }}
               {...localProps}
               style={{
                 ...style
@@ -484,14 +487,22 @@ export default function HOC(WrappedComponent) {
       );
     }
   };
-  function mapDispatchToProps(dispatch) {
-    return {
-      dispatch
-    };
-  }
-  const mapStateToProps = state => ({
-    value: "fuck"
-  });
-
-  return connect(mapStateToProps, mapDispatchToProps)(RndWrappedComponentClass);
+  // 高阶组件包裹的时候直接connect到store是不可以的，因为此时window.__pages还不存在
+  // 考虑使用EventProxy或者其他方式/组件挂载的时候再从store中获取值/reselect
+  // const pages = window.__pages || [];
+  // const currentPath = "/" + window.location.pathname.split("/").slice(2);
+  // const page = pages.filter(el => {
+  //   return el.pagePath == currentPath;
+  // })[0];
+  // console.log("我的pages的值为===", window.__pages);
+  // function mapDispatchToProps(dispatch) {
+  //   return {
+  //     dispatch
+  //   };
+  // }
+  // const mapStateToProps = state => ({
+  //   value: "覃亮准备输入"
+  // });
+  // return connect(mapStateToProps, mapDispatchToProps)(RndWrappedComponentClass);
+  return RndWrappedComponentClass;
 }

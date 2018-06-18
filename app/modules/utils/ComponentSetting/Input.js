@@ -12,7 +12,10 @@
  */
 const flexibleConfigurationLists = {
   Input: {
-    //   通用属性
+    // 要添加的函数，HOC中接受到它并调用方法
+    addonMethods: {
+      value: "onChange"
+    },
     props: {
       addonAfter: {
         defaultValue: null,
@@ -84,39 +87,6 @@ const flexibleConfigurationLists = {
         value: null
       }
     }
-    // children: {
-    //   // TextArea
-    //   // 搜索
-    //   Search: {
-    //     enterButton: {
-    //       label: "是否有确认按钮",
-    //       type: "boolean|ReactNode".split("|"),
-    //       defaultValue: false,
-    //       value: false
-    //     },
-    //     onSearch: {
-    //       label: "搜索或按下回车键时的回调",
-    //       type: "func",
-    //       defaultValue: null,
-    //       value: null
-    //     }
-    //   },
-    //   // 组
-    //   Group: {
-    //     compact: {
-    //       label: "是否用紧凑模式",
-    //       type: "boolean",
-    //       defaultValue: false
-    //     },
-    //     size: {
-    //       label: "Input.Group 中所有的 Input 的大小",
-    //       type: "enum",
-    //       enums: ["large", "default", "small"],
-    //       defaultValue: "default",
-    //       value: "default"
-    //     }
-    //   }
-    // }
   }
 };
 

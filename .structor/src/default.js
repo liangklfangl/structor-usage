@@ -55,14 +55,9 @@ const generateReducers = () => {
  * 创建桌面工作区的函数并监听路由配置
  */
 window.__createPageDesk = function() {
-  store = configureStore({}, generateReducers());
-  // 创建自己的store
-  window.__switchToPath = function(pagePath) {
-    browserHistory.push(getRealPathName(pagePath));
-  };
   let childRoutes = [];
+  // 每一个路由都会加载PageForDesk为当前路由的实例组件
   if (window.__pages && window.__pages.length > 0) {
-    // 每一个路由都会加载PageForDesk为当前路由的实例组件
     childRoutes = window.__pages.map((page, idex) => {
       return { path: page.pagePath, component: PageForDesk };
     });
@@ -70,6 +65,12 @@ window.__createPageDesk = function() {
   } else {
     console.warn("Please check project model, pages were not found.");
   }
+  store = configureStore({}, generateReducers());
+  // 创建自己的store
+  window.__switchToPath = function(pagePath) {
+    browserHistory.push(getRealPathName(pagePath));
+  };
+
   routeConfig = [
     {
       path: "/",
@@ -78,6 +79,7 @@ window.__createPageDesk = function() {
       childRoutes: childRoutes
     }
   ];
+
   render();
   window.pageReadyState = "initialized";
 };
@@ -90,7 +92,6 @@ class PageContainer extends React.Component {
     return <div>{this.props.children}</div>;
   }
 }
-
 /**
  * 热加载
  */

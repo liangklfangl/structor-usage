@@ -2,6 +2,7 @@ const React = require("react");
 import EventProxy from "./eventProxy";
 const debug = require("debug")("react-safe-component");
 // 需要处理的生命周期方法
+
 const lifeCycleMethods = [
   "componentWillMount",
   "componentDidMount",
@@ -22,16 +23,41 @@ const lifeCycleMethods = [
 function messageReceiveCallback(componentKey, key, eventType = "Query") {
   debugger;
 }
-/**
- * 
- * @param {*} Component 
- * @param {*} param1 
- * 包裹函数
- */
 const wrap = (
   Component,
-  { events = [], type = "data", componentKey = "", key = "", propsUtils = {} }
+  {
+    events = [],
+    type = "data",
+    addonMethods = {},
+    componentKey = "",
+    elementKey = "",
+    key = "",
+    dispatch = () => {},
+    propsUtils = {}
+  }
 ) => {
+  const currentPath = "/" + window.location.pathname.split("/").slice(2);
+  const page = window.__pages.filter(el => {
+    return el.pagePath == currentPath;
+  })[0];
+  /**
+   * 添加实例方法
+   * {
+      value: "onChange" => this.onChange
+    }
+   */
+  const keys = Object.keys(addonMethods);
+  for (let t = 0, len = keys.length; t < len; t++) {
+    const methodName = addonMethods[keys[t]];
+    Component.prototype[methodName] = value => {
+      dispatch({
+        type: page.pageName + ".",
+        payload: {
+          [keys[t]]: value
+        }
+      });
+    };
+  }
   /**
     * 已经挂载了错误事件
     */
