@@ -45,11 +45,12 @@ const render = () => {
  * 根据window.__pages产生新的reducers列表
  */
 const generateReducers = () => {
-  return (window.__pages || []).reduce((prev, cur) => {
+  const reducers = (window.__pages || []).reduce((prev, cur) => {
     const key = cur["pageName"];
     prev[key] = ReducerCreationFactory(key);
     return prev;
   }, {});
+  return reducers;
 };
 /**
  * 创建桌面工作区的函数并监听路由配置

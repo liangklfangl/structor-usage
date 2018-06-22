@@ -6,6 +6,7 @@
  */
 export default function ReducerFactory(prefix, actionMutationMap = {}) {
     return (state = {}, action) => {
+    
       return actionMutationMap[action.type]
         ? actionMutationMap[action.type](state, action.payload)
         : action.type.indexOf(`${prefix}.`) === 0

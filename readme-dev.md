@@ -52,7 +52,9 @@ modules/ContextMenu.js
 (1)如果一份老数据不能拖动的情况下，可以考虑吧老数据删除掉，重新拖动元素。这就是遇到不能resize的情况下的解决方案
 
 
+### 问题6:弹窗不显示是因为没有visible
 
+### 问题7:同时调用两次去修改model.json导致不生效，所有采用了changeOptions,而不是changeOption后续优化
 
 ### 参考文献
 [Three Rules For Structuring (Redux) Applications](https://jaysoo.ca/2016/02/28/organizing-redux-application/)

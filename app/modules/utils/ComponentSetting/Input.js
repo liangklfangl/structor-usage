@@ -12,11 +12,19 @@
  */
 const flexibleConfigurationLists = {
   Input: {
-    // 要添加的函数，HOC中接受到它并调用方法
+    //key:这个方法调用后修改state的那个值
+    //value:添加的方法
     addonMethods: {
       value: "onChange"
     },
     props: {
+      // 根据这个name写入state
+      name: {
+        defaultValue: "",
+        value: "",
+        label: "字段名称",
+        type: "string"
+      },
       addonAfter: {
         defaultValue: null,
         value: null,
@@ -67,13 +75,6 @@ const flexibleConfigurationLists = {
         defaultValue: "",
         type: "string|ReactNode".split("|")
       },
-      // type: {
-      //   label: "Input类型",
-      //   value: "text",
-      //   defaultValue: "text",
-      //   type: "enum",
-      //   enums: ["text", "textarea"]
-      // },
       value: {
         label: "Input类型",
         type: "string",

@@ -167,7 +167,7 @@
     "reselect": "2.5.4",
     "structor": "^2.2.0",
     "webpack-dev-middleware": "^1.12.2",
-    "whatwg-fetch": "1.0.0"
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",

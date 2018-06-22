@@ -72,8 +72,7 @@ module.exports = options => ({
     new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
-      // make fetch available
-      fetch: "exports?self.fetch!whatwg-fetch"
+      fetch: "exports-loader?self.fetch!whatwg-fetch"
     }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`

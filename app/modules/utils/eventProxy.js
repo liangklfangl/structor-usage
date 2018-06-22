@@ -7,7 +7,6 @@ const eventProxy = {
     if (this.onObj[key] === undefined) {
       this.onObj[key] = [];
     }
-
     this.onObj[key].push(fn);
   },
   one: function(key, fn) {
