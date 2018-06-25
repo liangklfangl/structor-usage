@@ -2,6 +2,7 @@ import React from "react";
 import EventProxy from "./eventProxy";
 import { fetchGet } from "./IO";
 const debug = require("debug")("react-safe-component");
+const REGEX = /\d+_\d+/g;
 const lifeCycleMethods = [
   // "componentWillMount",
   "componentDidMount"
@@ -22,19 +23,44 @@ function messageReceiveCallback(msg, store) {
   const page = window.__pages.filter(el => {
     return el.pagePath == currentPath;
   })[0];
-  const { eventType, interfaceAddress, modal, targetKeys } = msg;
+  const {
+    eventType,
+    interfaceAddress,
+    modal,
+    targetKeys,
+    eventsSettings = {},
+    events = [],
+    key
+  } = msg;
   const pageData = store.getState()[page.pageName];
   const queryParams = targetKeys.reduce((prev, cur) => {
     const { fieldDesc, fieldName, key } = cur;
-    const fieldValue = pageData[key];
+    const fieldValue = pageData[key] || "";
     prev[fieldName] = fieldValue;
     return prev;
   }, {});
-  console.log("componentInstance===", this, store, queryParams);
-  debugger;
+  const { attribute } = eventsSettings;
+  // events的格式为:（页面key_组件key)
+  let pageKey, elementKey;
+  for (let t = 0, len = events.length; t < len; t++) {
+    const el = REGEX.exec(events[t]);
+    [pageKey, elementKey] = el && el[0].split("_");
+  }
+  console.log(
+    "messageReceiveCallback中的数据===",
+    msg,
+    store,
+    queryParams,
+    this.props.propsUtils
+  );
+
+  // 获取数据设置到某一个组件的某一个属性上
   fetchGet(interfaceAddress, queryParams)
     .then(res => {
-      // debugger;
+      this.props.propsUtils.settingPropsDirectly(key, attribute, [
+        { id: 12, name: "覃亮", sex: "男" },
+        { id: 11, name: "方康蕾", sex: "女" }
+      ]);
     })
     .catch(e => {
       // debugger;
@@ -47,6 +73,7 @@ const wrap = (
     events = [],
     type,
     addonMethods = {},
+    eventsSettings = {},
     store = {},
     vergineType = "",
     componentKey = "",
@@ -98,8 +125,15 @@ const wrap = (
           if (type == "data") {
             for (let t = 0, len = events.length; t < len; t++) {
               EventProxy.on(events[t], msg => {
-                console.log("数据组件接受到事件:", msg);
-                messageReceiveCallback.bind(this)(msg, store);
+                console.log("数据组件接受到事件:", eventsSettings, events, msg);
+                messageReceiveCallback.bind(this)(
+                  {
+                    ...msg,
+                    eventsSettings,
+                    events
+                  },
+                  store
+                );
               });
             }
             return originalMethod.apply(this, arguments);

@@ -434,6 +434,7 @@ export default function HOC(WrappedComponent) {
           key: "dataSource",
           addonMethods: ComponentSupportedMethods,
           events: this.props.events,
+          eventsSettings:this.props.eventsSettings,
           dispatch: this.props.dispatch,
           elementKey: this.props.elementKey,
           store: this.context.store,
@@ -443,21 +444,24 @@ export default function HOC(WrappedComponent) {
               this.props.propsUtils.settingPropsDirectly
           }
         };
+      // 数据组件接受事件EventProxy
       if (this.props.events) {
         if (COMPONENT_TYPE == "data") {
-          // 数据组件接受事件EventProxy
           MotifiedLifeCycleWrappedComponent = motifyLifeCycle(
             WrappedComponent,
             utilProps
           );
         } else {
-          // 行为组件直接返回
-          localProps.onClick = () => {
-            for (let t = 0, len = this.props.events.length; t < len; t++) {
-              EventProxy.trigger(
-                this.props.events[t],
-                this.props.eventsSettings
-              );
+          // 行为组件直接返回,如果按住了command按键那么不触发事件
+          localProps.onClick = e => {
+            const { metaKey } = e;
+            if (!metaKey) {
+              for (let t = 0, len = this.props.events.length; t < len; t++) {
+                EventProxy.trigger(
+                  this.props.events[t],
+                  this.props.eventsSettings
+                );
+              }
             }
           };
           MotifiedLifeCycleWrappedComponent = WrappedComponent;

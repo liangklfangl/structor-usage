@@ -49,31 +49,32 @@
             },
             "columns": [
               {
-                "className": null,
-                "colSpan": null,
-                "dataIndex": null,
-                "title": null,
-                "key": null
+                "className": "",
+                "colSpan": 2,
+                "dataIndex": "id",
+                "title": "ID",
+                "key": "id"
               },
               {
-                "className": null,
-                "colSpan": null,
-                "dataIndex": null,
+                "className": "",
+                "colSpan": 2,
+                "dataIndex": "name",
                 "title": "Name",
-                "key": null
+                "key": "name"
               },
               {
                 "className": "container",
                 "colSpan": 2,
-                "dataIndex": 3,
+                "dataIndex": "sex",
                 "title": "SEX",
-                "key": 5
+                "key": "sex"
               }
             ],
             "events": [
               "Page4_20"
             ],
             "eventsSettings": {
+              "key": "20",
               "attribute": "dataSource"
             }
           }
@@ -260,7 +261,7 @@
           "namespace": "antd",
           "props": {
             "key": "20",
-            "x": 884,
+            "x": 883,
             "width": 92,
             "type": "primary",
             "height": 27,
@@ -274,7 +275,8 @@
             ],
             "eventsSettings": {
               "eventType": "QUERY",
-              "modal": "5",
+              "modal": "23",
+              "key": "5",
               "interfaceAddress": "/push/query",
               "targetKeys": [
                 {
@@ -283,9 +285,9 @@
                   "key": "11"
                 },
                 {
-                  "fieldName": "school",
-                  "fieldDesc": "学校",
-                  "key": "18"
+                  "fieldName": "sex",
+                  "fieldDesc": "性别",
+                  "key": "13"
                 }
               ]
             }
