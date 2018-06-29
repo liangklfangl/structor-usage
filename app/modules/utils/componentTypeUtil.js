@@ -1,6 +1,6 @@
 const COMPONENT_TTYPES_DATA = ["Input", "Select", "Table"];
 
-const COMPONENT_TYPES_BEHAVIOR = ["Button"];
+const COMPONENT_TYPES_BEHAVIOR = ["Button", "FORM", "FormItem"];
 /**
  * 
  * @param {*} componentType 

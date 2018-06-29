@@ -291,12 +291,14 @@ export default function HOC(WrappedComponent) {
             true
           );
         }
-
+        console.log("监听mousedown的元素为:", $(`${wrappedElClss}`));
         //在antd的元素上绑定点击事件
         $(`${wrappedElClss}`).mousedown(e => {
           this.position.clientX = e.clientX;
           this.position.clientY = e.clientY;
           this.dragging = e.target;
+          e.stopPropagation();
+          console.log("监听mousedown的元素为:点击", e.target.classList);
           const { metaKey } = e;
           if (metaKey) {
             // 多选
@@ -308,6 +310,8 @@ export default function HOC(WrappedComponent) {
           } else {
             // 单选
             const { onMouseDown, elementKey } = this.props;
+            console.log('jquery监听mousedown的elementKey===',elementKey);
+            onMouseDown(elementKey);
             window.batchSelectedComponent = [];
             const COMPONENT_TYPE = getSelectedComponentType(this.props.type);
             if (COMPONENT_TYPE == "behavior") {
@@ -425,7 +429,8 @@ export default function HOC(WrappedComponent) {
       const localProps = {
         ...this.props
       };
-      delete localProps.onMouseDown;
+      console.log("localProps===", localProps);
+      // delete localProps.onMouseDown;
       let MotifiedLifeCycleWrappedComponent,
         utilProps = {
           type: COMPONENT_TYPE,
@@ -434,7 +439,7 @@ export default function HOC(WrappedComponent) {
           key: "dataSource",
           addonMethods: ComponentSupportedMethods,
           events: this.props.events,
-          eventsSettings:this.props.eventsSettings,
+          eventsSettings: this.props.eventsSettings,
           dispatch: this.props.dispatch,
           elementKey: this.props.elementKey,
           store: this.context.store,
@@ -454,6 +459,7 @@ export default function HOC(WrappedComponent) {
         } else {
           // 行为组件直接返回,如果按住了command按键那么不触发事件
           localProps.onClick = e => {
+            this.props.mouseDownHandler(this.props.elementKey, false);
             const { metaKey } = e;
             if (!metaKey) {
               for (let t = 0, len = this.props.events.length; t < len; t++) {
@@ -468,6 +474,11 @@ export default function HOC(WrappedComponent) {
         }
       } else {
         // 如果这些组件没有任何events配置，那么监听state变化即可
+        localProps.onClick = e => {
+          const elementKey = this.props.elementKey;
+          console.log("click的elementKey为", elementKey);
+          this.props.onMouseDown(e);
+        };
         MotifiedLifeCycleWrappedComponent = sychronizeState(
           WrappedComponent,
           utilProps
@@ -478,7 +489,7 @@ export default function HOC(WrappedComponent) {
         this.context.store.getState()[page.pageName][this.props.elementKey] ||
         "";
       // 这是组件的值
-      console.log("获取到组件属性为====", this.props);
+      console.log("获取到this.props.children组件属性为====", this.props.children);
       console.log("组件本身设置的值为====", this.context.store.getState());
       return (
         <Rnd

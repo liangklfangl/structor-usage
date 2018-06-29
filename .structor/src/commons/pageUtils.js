@@ -79,7 +79,15 @@ export function createElement(
     let children = [];
     node.children.forEach(node => {
       children.push(
-        createElement(node, initialState, mouseDownHandler, options)
+        // createElement(node, initialState, mouseDownHandler, options)
+        createElement(
+          node,
+          initialState,
+          () => {
+            console.log("fuck children click");
+          },
+          options
+        )
       );
     });
     nestedElements = children;
@@ -89,20 +97,27 @@ export function createElement(
   }
 
   let result = null;
+  console.log("创建好的children列表为===", nestedElements);
   try {
+    // 编辑模式不是预览模式
     if (options.isEditModeOn) {
-      // 默认的isEditModeOn为true表示编辑模式
       const wrapperProps = {
         key: node.key,
         ...props,
         elementKey: node.key,
         type: modelNode.type,
         initialState: initialState,
-        onMouseDown:mouseDownHandler,
-        // 鼠标点击的时候触发
+        onMouseDown: (e) => {
+          console.log("fuck inner outer", e);
+        },
+        // 这个是ComponentWrapper组件要读取的参数
         wrappedProps: {
           ...props,
           bindPropSelectChange,
+          // onMouseDown: mouseDownHandler,
+          onMouseDown: e => {
+            console.log("fuck inner ", e);
+          },
           disabled: false,
           key: node.key,
           dragSizeChangeCallback,
@@ -110,18 +125,17 @@ export function createElement(
           elementKey: node.key,
           type: modelNode.type,
           bindEnumContextMenuSelect,
-          initialState: initialState,
+          initialState: initialState
         },
-        // 这是被包裹的元素添加的属性
+        // 这个是ComponentWrapper组件要读取的组件类型参数
         wrappedComponent: type
-        // 包裹的组件
       };
       console.log("wrapperProps====", wrapperProps);
-      // ComponentWrapper为要新构建的属性
       result = React.createElement(
         ComponentWrapper,
         wrapperProps,
         nestedElements
+        // 这个是ComponentWrapper组件要读取的children参数
       );
     } else {
       result = React.createElement(type, props, nestedElements);

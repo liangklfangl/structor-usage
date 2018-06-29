@@ -334,9 +334,7 @@ class PageForDesk extends Component {
         id="pageContainer"
       >
         {this.elementTree}
-        {/* 组件树 */}
         {boundaryOverlays}
-        {/* 边界 */}
         {this.state.isEditModeOn ? (
           <MouseOverOverlay
             key="mouseOverBoundary"

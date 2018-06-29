@@ -53,7 +53,7 @@ function messageReceiveCallback(msg, store) {
     queryParams,
     this.props.propsUtils
   );
-
+  console.log('queryParams===',queryParams);
   // 获取数据设置到某一个组件的某一个属性上
   fetchGet(interfaceAddress, queryParams)
     .then(res => {
@@ -63,7 +63,7 @@ function messageReceiveCallback(msg, store) {
       ]);
     })
     .catch(e => {
-      // debugger;
+      
     });
 }
 

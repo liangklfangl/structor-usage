@@ -5,66 +5,32 @@
       "pagePath": "/drag",
       "children": [
         {
-          "type": "div",
-          "props": {
-            "style": {
-              "display": "flex",
-              "justifyContent": "center",
-              "alignItems": "center",
-              "padding": "1em"
-            }
-          },
-          "children": [
-            {
-              "type": "div",
-              "children": [
-                {
-                  "type": "h3",
-                  "props": {
-                    "style": {
-                      "padding": "1em",
-                      "textAlign": "center"
-                    }
-                  },
-                  "children": []
-                }
-              ]
-            }
-          ]
-        },
-        {
           "type": "Table",
           "variant": "default",
           "children": [],
           "namespace": "antd",
           "props": {
-            "key": "5",
-            "x": 17,
-            "width": 1348,
-            "height": 55,
-            "y": 246,
-            "style": {
-              "width": "1348px",
-              "height": "55px"
-            },
+            "key": "2",
+            "x": 59,
+            "y": 218,
             "columns": [
               {
                 "className": "",
-                "colSpan": 2,
+                "colSpan": 1,
                 "dataIndex": "id",
                 "title": "ID",
                 "key": "id"
               },
               {
                 "className": "",
-                "colSpan": 2,
+                "colSpan": 1,
                 "dataIndex": "name",
                 "title": "Name",
                 "key": "name"
               },
               {
                 "className": "container",
-                "colSpan": 2,
+                "colSpan": 1,
                 "dataIndex": "sex",
                 "title": "SEX",
                 "key": "sex"
@@ -76,173 +42,75 @@
             "eventsSettings": {
               "key": "20",
               "attribute": "dataSource"
+            },
+            "dataSource": [
+              {
+                "id": 12,
+                "name": "覃亮",
+                "sex": "男"
+              },
+              {
+                "id": 11,
+                "name": "方康蕾",
+                "sex": "女"
+              }
+            ],
+            "width": 1231,
+            "height": 55,
+            "style": {
+              "width": "1231px",
+              "height": "55px"
             }
-          }
+          },
+          "key": "4"
         },
         {
-          "type": "Modal",
+          "type": "Form",
           "variant": "default",
           "children": [
             {
-              "type": "Input",
+              "type": "FormItem",
               "variant": "default",
-              "children": [],
-              "namespace": "antd"
-            },
-            {
-              "type": "Select",
-              "variant": "default",
-              "children": [],
+              "children": [
+                {
+                  "type": "Input",
+                  "variant": "default",
+                  "children": [],
+                  "namespace": "antd"
+                }
+              ],
               "namespace": "antd",
               "props": {
-                "style": {
-                  "width": "200px",
-                  "height": "40px"
-                }
+                "labelCol": {
+                  "xs": {
+                    "span": 24
+                  },
+                  "sm": {
+                    "span": 8
+                  }
+                },
+                "wrapperCol": {
+                  "xs": {
+                    "span": 24
+                  },
+                  "sm": {
+                    "span": 16
+                  }
+                },
+                "label": "E-mail"
               }
             }
           ],
           "namespace": "antd",
           "props": {
-            "width": 616,
-            "height": 72,
-            "x": 239,
-            "y": 409,
-            "visible": false,
-            "key": "6",
+            "key": "65",
+            "width": 924,
+            "height": 75,
+            "x": 32,
+            "y": 49,
             "style": {
-              "border": "1px solid pink",
-              "width": "616px",
-              "height": "72px"
-            }
-          }
-        },
-        {
-          "type": "InputGen",
-          "variant": "default",
-          "children": [],
-          "namespace": "InputGen",
-          "props": {}
-        },
-        {
-          "type": "ModalReducer",
-          "variant": "default",
-          "children": [],
-          "namespace": "modalReducer",
-          "props": {}
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "11",
-            "x": 190,
-            "width": 132,
-            "height": 30,
-            "y": 88,
-            "style": {
-              "width": "132px",
-              "height": "30px"
-            },
-            "name": {
-              "fieldName": "jifen",
-              "fieldDesc": "积分"
-            }
-          }
-        },
-        {
-          "type": "span",
-          "variant": "default",
-          "props": {},
-          "children": [],
-          "text": "您的名字"
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "13",
-            "x": 576,
-            "width": 277,
-            "height": 42,
-            "y": 169,
-            "style": {
-              "width": "277px",
-              "height": "42px"
-            },
-            "name": {
-              "fieldName": "sex",
-              "fieldDesc": "性别"
-            }
-          }
-        },
-        {
-          "type": "Counter",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Counter",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Counter",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Counter",
-          "props": {},
-          "children": [],
-          "namespace": "antd",
-          "variant": "default"
-        },
-        {
-          "type": "Input",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "18",
-            "x": 425,
-            "width": 100,
-            "height": 50,
-            "y": 81,
-            "style": {
-              "width": "100px",
-              "height": "50px"
-            },
-            "name": {
-              "fieldName": "school",
-              "fieldDesc": "学校"
-            }
-          }
-        },
-        {
-          "type": "Button",
-          "variant": "default",
-          "children": [],
-          "namespace": "antd",
-          "props": {
-            "key": "14",
-            "x": 1038,
-            "width": 94,
-            "height": 34,
-            "y": 45,
-            "style": {
-              "width": "94px",
-              "height": "34px"
+              "width": "924px",
+              "height": "75px"
             }
           }
         },
@@ -255,17 +123,18 @@
               "variant": "default",
               "props": {},
               "children": [],
-              "text": "搜索"
+              "text": "搜索",
+              "key": "17"
             }
           ],
           "namespace": "antd",
           "props": {
-            "key": "20",
-            "x": 883,
+            "key": "5",
+            "x": 1029,
             "width": 92,
             "type": "primary",
             "height": 27,
-            "y": 59,
+            "y": 41,
             "style": {
               "width": "92px",
               "height": "27px"
@@ -290,10 +159,24 @@
                   "key": "13"
                 }
               ]
-            }
-          }
+            },
+            "dataSource": [
+              {
+                "id": 12,
+                "name": "覃亮",
+                "sex": "男"
+              },
+              {
+                "id": 11,
+                "name": "方康蕾",
+                "sex": "女"
+              }
+            ]
+          },
+          "key": "16"
         }
-      ]
+      ],
+      "key": "1"
     },
     {
       "pageName": "Page17",
@@ -324,13 +207,17 @@
                   "children": [
                     {
                       "type": "span",
-                      "text": "Click on me and start creating a new cool component."
+                      "text": "Click on me and start creating a new cool component.",
+                      "key": "22"
                     }
-                  ]
+                  ],
+                  "key": "21"
                 }
-              ]
+              ],
+              "key": "20"
             }
-          ]
+          ],
+          "key": "19"
         },
         {
           "type": "Input",
@@ -348,7 +235,8 @@
               "height": "32px"
             },
             "addonBefore": "http://"
-          }
+          },
+          "key": "23"
         },
         {
           "type": "Input",
@@ -365,49 +253,57 @@
               "width": "88px",
               "height": "30px"
             }
-          }
+          },
+          "key": "24"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "25"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "26"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "27"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "28"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "29"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "30"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "31"
         },
         {
           "type": "Input",
@@ -424,7 +320,8 @@
               "width": "100px",
               "height": "50px"
             }
-          }
+          },
+          "key": "32"
         },
         {
           "type": "Input",
@@ -441,7 +338,8 @@
               "width": "100px",
               "height": "50px"
             }
-          }
+          },
+          "key": "33"
         },
         {
           "type": "Input",
@@ -459,19 +357,23 @@
               "height": "50px"
             },
             "defaultValue": "请输入值"
-          }
+          },
+          "key": "34"
         }
-      ]
+      ],
+      "key": "18"
     },
     {
       "pageName": "Page53",
       "pagePath": "/new-page1",
-      "children": []
+      "children": [],
+      "key": "35"
     },
     {
       "pageName": "Page63",
       "pagePath": "/new-page2",
-      "children": []
+      "children": [],
+      "key": "36"
     },
     {
       "pageName": "Page72",
@@ -502,19 +404,24 @@
                   "children": [
                     {
                       "type": "span",
-                      "text": "Click on me and start creating a new cool component."
+                      "text": "Click on me and start creating a new cool component.",
+                      "key": "41"
                     }
-                  ]
+                  ],
+                  "key": "40"
                 }
-              ]
+              ],
+              "key": "39"
             }
-          ]
+          ],
+          "key": "38"
         },
         {
           "type": "Input",
           "variant": "default",
           "children": [],
-          "namespace": "antd"
+          "namespace": "antd",
+          "key": "42"
         },
         {
           "type": "Table",
@@ -531,7 +438,8 @@
               "width": "780px",
               "height": "50px"
             }
-          }
+          },
+          "key": "43"
         },
         {
           "type": "Input",
@@ -548,9 +456,11 @@
               "width": "100px",
               "height": "50px"
             }
-          }
+          },
+          "key": "44"
         }
-      ]
+      ],
+      "key": "37"
     },
     {
       "pageName": "Page54",
@@ -581,13 +491,17 @@
                   "children": [
                     {
                       "type": "span",
-                      "text": "Click on me and start creating a new cool component."
+                      "text": "Click on me and start creating a new cool component.",
+                      "key": "49"
                     }
-                  ]
+                  ],
+                  "key": "48"
                 }
-              ]
+              ],
+              "key": "47"
             }
-          ]
+          ],
+          "key": "46"
         },
         {
           "type": "Select",
@@ -604,14 +518,17 @@
               "width": "95px",
               "height": "32px"
             }
-          }
+          },
+          "key": "50"
         },
         {
           "type": "DatePicker",
           "variant": "default",
-          "children": []
+          "children": [],
+          "key": "51"
         }
-      ]
+      ],
+      "key": "45"
     },
     {
       "pageName": "Page61",
@@ -642,13 +559,17 @@
                   "children": [
                     {
                       "type": "span",
-                      "text": "Click on me and start creating a new cool component."
+                      "text": "Click on me and start creating a new cool component.",
+                      "key": "56"
                     }
-                  ]
+                  ],
+                  "key": "55"
                 }
-              ]
+              ],
+              "key": "54"
             }
-          ]
+          ],
+          "key": "53"
         },
         {
           "type": "Select",
@@ -665,9 +586,11 @@
               "width": "100px",
               "height": "50px"
             }
-          }
+          },
+          "key": "57"
         }
-      ]
+      ],
+      "key": "52"
     },
     {
       "pageName": "Page64",
@@ -698,13 +621,17 @@
                   "children": [
                     {
                       "type": "span",
-                      "text": "Click on me and start creating a new cool component."
+                      "text": "Click on me and start creating a new cool component.",
+                      "key": "62"
                     }
-                  ]
+                  ],
+                  "key": "61"
                 }
-              ]
+              ],
+              "key": "60"
             }
-          ]
+          ],
+          "key": "59"
         },
         {
           "type": "Link",
@@ -714,12 +641,15 @@
           "children": [
             {
               "type": "span",
-              "text": "Link to /main"
+              "text": "Link to /main",
+              "key": "64"
             }
           ],
-          "variant": "default"
+          "variant": "default",
+          "key": "63"
         }
-      ]
+      ],
+      "key": "58"
     }
   ]
 }

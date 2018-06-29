@@ -6,4 +6,16 @@ import Table from "./components/Table";
 import Column from "./components/Column";
 import Button from "./components/Button";
 import Modal from "./components/Modal";
-export { Input, TextArea, Select, Table, Column, Button, Modal };
+import Form from "./components/Form";
+import FormItem from "./components/FormItem";
+export {
+  Input,
+  TextArea,
+  Select,
+  Table,
+  Column,
+  Button,
+  Modal,
+  Form,
+  FormItem
+};
